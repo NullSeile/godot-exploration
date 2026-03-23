@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b4jccvu5j6uy6"]
+
+[ext_resource type="Script" uid="uid://c7ofvd0ixk0uk" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://c2h2p3mamngrm" path="res://player/frame.png" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+height = 1.5
+
+[node name="Player" type="CharacterBody3D" unique_id=623117812]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=615844148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=939351616]
+transform = Transform3D(1, 0, 0, 0, 0.96481943, 0.26291335, 0, -0.26291335, 0.96481943, 0, 1.3875809, 2.4993165)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=566412791]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
+gi_mode = 2
+centered = false
+offset = Vector2(-7.5, 0)
+pixel_size = 0.07
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("2_onrkg")

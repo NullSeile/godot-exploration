@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://boyolm0gitln5"
+path="res://.godot/imported/ajan.dialogue-903ca67d5e029c817a132fd79fece110.tres"
+
+[deps]
+
+source_file="res://ajan/ajan.dialogue"
+dest_files=["res://.godot/imported/ajan.dialogue-903ca67d5e029c817a132fd79fece110.tres"]
+
+[params]
+
+defaults=true
