@@ -1,16 +1,43 @@
 extends CharacterBody3D
+class_name Player
 
-const SPEED = 5.0
+const SPEED = 300.0
 const JUMP_VELOCITY = 4.5
 
 var desired_angle: float = 0
-
 var on_dialogue: bool = false
+
+var current_interactable = null
+
+signal set_interactable(node: Node)
 
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(func(_a): on_dialogue = true)
-	DialogueManager.dialogue_ended.connect(func(_a): on_dialogue = true)
+	DialogueManager.dialogue_ended.connect(func(_a): on_dialogue = false)
+	set_interactable.connect(
+		func(body):
+			current_interactable = body
+			$UI/interact.visible = true if body else false
+	)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if current_interactable:
+			current_interactable.interact()
+
+	if event.is_action_pressed("test2"):
+		get_tree().current_scene.launch_minigame()
+
+
+func _process(delta: float) -> void:
+	if velocity.x > 0:
+		desired_angle = 0
+	elif velocity.x < 0:
+		desired_angle = -PI
+
+	$Sprite3D.rotation.y = lerpf($Sprite3D.rotation.y, desired_angle, delta * 10)
 
 
 func _physics_process(delta: float) -> void:
@@ -25,25 +52,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if Input.is_action_pressed("ui_up"):
-		get_tree().current_scene.launch_minigame()
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	var input := Input.get_axis("left", "right")
+	var target := input * SPEED * delta
+
+	if input:
+		velocity.x = lerpf(velocity.x, target, delta * 20)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	if velocity.x > 0:
-		desired_angle = 0
-	elif velocity.x < 0:
-		desired_angle = PI
-
-	$Sprite3D.rotation.y = lerp_angle($Sprite3D.rotation.y, desired_angle, delta * 10)
+		velocity.x = lerpf(velocity.x, target, delta * 10)
 
 	move_and_slide()

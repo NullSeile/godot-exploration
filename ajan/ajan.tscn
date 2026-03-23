@@ -39,6 +39,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jx4bc"]
+size = Vector3(3, 2, 3)
+
 [node name="Ajan" type="Node3D" unique_id=541447099]
 script = ExtResource("1_c2t2k")
 
@@ -54,3 +57,9 @@ autoplay = "default"
 frame_progress = 0.62518567
 
 [node name="DirectionNode" type="Node3D" parent="." unique_id=377582358]
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=777271175]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1362055532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.5)
+shape = SubResource("BoxShape3D_jx4bc")

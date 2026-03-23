@@ -110,14 +110,14 @@ mesh = SubResource("BoxMesh_37kl0")
 shape = SubResource("BoxShape3D_37kl0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="World" unique_id=1372598342]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9534594, 1.1048443, -0.12886465)
+transform = Transform3D(0.6913046, -0.37571663, -0.6171993, -0.02458628, 0.8414542, -0.5397688, 0.7221451, 0.38831922, 0.5724637, -1.3742424, 1.2760946, -1.5271684)
 mesh = SubResource("TorusMesh_37kl0")
 
 [node name="Player" parent="World" unique_id=2020018808 groups=["player"] instance=ExtResource("2_rf2cd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.299, 0.702, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="World" unique_id=1133419572]
-transform = Transform3D(0.8183504, 0.4205627, -0.39170098, 0, 0.68155146, 0.7317703, 0.5747196, -0.59884447, 0.5577479, 0.9146669, 2.297476, 0.50958943)
+transform = Transform3D(0.8183504, 0.4205627, -0.39170098, 0, 0.68155146, 0.7317703, 0.5747196, -0.59884447, 0.5577479, 0.54359937, 2.297476, 0.50958943)
 light_energy = 4.0
 light_volumetric_fog_energy = 16.0
 shadow_enabled = true
@@ -136,12 +136,6 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Ajan" parent="World" unique_id=541447099 instance=ExtResource("3_a814b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1036904, 0.0042288303, -0.581445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1036904, 0.008418322, -0.581445)
 
 [node name="Minigame" type="Node3D" parent="." unique_id=228684455]
-
-[node name="UI" type="Control" parent="." unique_id=741116871 groups=["ui"]]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
