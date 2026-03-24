@@ -21,9 +21,6 @@ size = Vector2(50, 50)
 noise = SubResource("FastNoiseLite_3n4wl")
 in_3d_space = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds3qd"]
-size = Vector2(75, 69)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wbbs"]
 size = Vector2(238, 62)
 
@@ -32,8 +29,18 @@ size = Vector2(238, 62)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ds3qd"]
 gradient = SubResource("Gradient_xccfl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ds3qd"]
+size = Vector2(75, 69)
+
 [node name="Minigame" type="Node2D" unique_id=685311119]
 script = ExtResource("1_4bqly")
+
+[node name="Button" type="Button" parent="." unique_id=1646514685]
+offset_left = 95.0
+offset_top = 254.0
+offset_right = 166.0
+offset_bottom = 285.0
+text = "Go Back"
 
 [node name="Terra" type="StaticBody2D" parent="." unique_id=283090697]
 position = Vector2(538, 547)
@@ -56,6 +63,17 @@ shape = SubResource("RectangleShape2D_4bqly")
 scale = Vector2(0.1, 0.1)
 texture = SubResource("NoiseTexture2D_3n4wl")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=833900920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2008481362]
+position = Vector2(344, 342)
+shape = SubResource("RectangleShape2D_2wbbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=842787024]
+position = Vector2(344.5, 342)
+scale = Vector2(3.7343748, 0.96875)
+texture = SubResource("GradientTexture2D_ds3qd")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1564462414]
 position = Vector2(6.77, 58.215)
 script = ExtResource("2_2wbbs")
@@ -74,13 +92,4 @@ position = Vector2(528.23, 289.785)
 offset = Vector2(0, -202.37)
 zoom = Vector2(1.22, 1.22)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=833900920]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2008481362]
-position = Vector2(344, 342)
-shape = SubResource("RectangleShape2D_2wbbs")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=842787024]
-position = Vector2(344.5, 342)
-scale = Vector2(3.7343748, 0.96875)
-texture = SubResource("GradientTexture2D_ds3qd")
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

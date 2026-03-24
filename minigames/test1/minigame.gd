@@ -56,3 +56,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		finished.emit()
 		queue_free()
+
+
+func _on_button_pressed() -> void:
+	finished.emit()
+	queue_free()
