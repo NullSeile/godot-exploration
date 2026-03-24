@@ -36,19 +36,21 @@ func create_static_body(
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CharacterBody2D/Camera2D.make_current()
+	$SubViewportContainer/SubViewport/Node2D/CharacterBody2D/Camera2D.make_current()
 	
 	# Crear plataformes
 	var gradient := Gradient.new()
 	gradient.colors = [Color.BLACK, Color.WHITE]
 	gradient.offsets = [0.0, 0.5]
 	
+	var game_world = $SubViewportContainer/SubViewport/Node2D
+	
 	
 	for i in range(10):
 		if i % 2 == 0:
-			create_static_body(Vector2(600,200 - i*100), gradient, Vector2(200,40))
+			create_static_body(Vector2(600,200 - i*100), gradient, Vector2(200,40), game_world )
 		else:
-			create_static_body(Vector2(300,200 - i*100), gradient, Vector2(200,40))
+			create_static_body(Vector2(300,200 - i*100), gradient, Vector2(200,40), game_world)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
