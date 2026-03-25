@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkbax"]
 size = Vector3(0.75, 1.5, 0.75)
 
-[node name="Player" type="CharacterBody3D" unique_id=623117812]
+[node name="Player" type="CharacterBody3D" unique_id=623117812 groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=615844148]
@@ -56,6 +56,6 @@ theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
 bbcode_enabled = true
-text = "[rainbow][wave]Press [b]E[/b] to speak"
+text = "[rainbow][wave]Press [b]E[/b] to interact"
 scroll_active = false
 horizontal_alignment = 1

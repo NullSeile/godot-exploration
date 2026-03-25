@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://6rlejg253fy5"]
+
+[ext_resource type="PackedScene" uid="uid://cqmxnlov00xcs" path="res://ajan/ajan.tscn" id="2_gl88u"]
+[ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="3_ingi6"]
+[ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="4_ingi6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37kl0"]
+
+[sub_resource type="Sky" id="Sky_8uh7m"]
+sky_material = SubResource("ProceduralSkyMaterial_37kl0")
+
+[sub_resource type="Environment" id="Environment_6uqi0"]
+background_mode = 2
+sky = SubResource("Sky_8uh7m")
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_37kl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37kl0"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_37kl0"]
+
+[sub_resource type="Gradient" id="Gradient_37kl0"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8uh7m"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6uqi0"]
+noise = SubResource("FastNoiseLite_8uh7m")
+color_ramp = SubResource("Gradient_37kl0")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_ppyta"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_6uqi0"),
+&"projection_threshold": 0.8
+}
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykrsh"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_g14j6"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_ykrsh")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_vbegm"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_g14j6")])
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_37kl0"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_w3niv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gl88u"]
+size = Vector3(1.3813477, 1.1118164, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3niv"]
+size = Vector3(0.7583008, 1.5195313, 1)
+
+[node name="Overworld1" type="Node3D" unique_id=1344054813]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1814479773]
+transform = Transform3D(-0.4937216, -0.092451856, -0.8646916, -0.14266026, -0.9722508, 0.1854082, -0.85783833, 0.21489698, 0.46683213, 0, 1.9556696, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=118156382]
+environment = SubResource("Environment_6uqi0")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1741091811]
+transform = Transform3D(7.9437356, 0, 0, 0, 1, 0, 0, 0, 7.9437356, 3.4098215, 0, -7.683026)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1474144605]
+mesh = SubResource("BoxMesh_37kl0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D" unique_id=1541853318]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D" unique_id=933108584]
+shape = SubResource("BoxShape3D_37kl0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1285322231]
+transform = Transform3D(-0.31701168, 0.3225487, -0.89188933, -0.47125772, 0.76251745, 0.44326478, 0.8230555, 0.56082964, -0.08972357, 4.2269616, 3.2079751, -3.5763264)
+mesh = SubResource("TorusMesh_37kl0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=538279842]
+transform = Transform3D(0.6913046, -0.37571663, -0.6171993, -0.02458628, 0.8414542, -0.5397688, 0.7221451, 0.38831922, 0.5724637, -1.3742424, 1.2760946, -1.5271684)
+mesh = SubResource("TorusMesh_37kl0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1028721060]
+transform = Transform3D(0.8183504, 0.4205627, -0.39170098, 0, 0.68155146, 0.7317703, 0.5747196, -0.59884447, 0.5577479, 0.54359937, 2.297476, 0.50958943)
+light_energy = 4.0
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_shadow = 4096.0
+spot_range = 15.087897
+spot_angle = 30.93018
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=1963272554]
+data_directory = "res://terr"
+material = SubResource("Terrain3DMaterial_ppyta")
+assets = SubResource("Terrain3DAssets_vbegm")
+physics_material = SubResource("PhysicsMaterial_37kl0")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Ajan" parent="." unique_id=541447099 instance=ExtResource("2_gl88u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1036904, 0.008418322, -0.581445)
+
+[node name="Door" type="Node3D" parent="." unique_id=874076773 node_paths=PackedStringArray("area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.494271, 1.0402145, 0)
+script = ExtResource("3_ingi6")
+area = NodePath("Area3D")
+scene_path = "res://levels/interior1/interior1.tscn"
+spawn_name = "Spawn"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=892725165]
+transform = Transform3D(0.22309119, -0.85310215, 0.47164297, 0.9674668, 0.2529982, 0, -0.119324826, 0.4562989, 0.8817896, 0.0945282, 0, -0.23364687)
+mesh = SubResource("TorusMesh_w3niv")
+
+[node name="Area3D" type="Area3D" parent="Door" unique_id=182167087]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Area3D" unique_id=1850104228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19067383, -0.055908203, 0)
+shape = SubResource("BoxShape3D_gl88u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door" unique_id=381976071]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D" unique_id=1498583353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12084961, -0.25976563, 0)
+shape = SubResource("BoxShape3D_w3niv")
+
+[node name="Spawn" type="Node3D" parent="." unique_id=1223654860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4948967, 0.8572193, 0)
+script = ExtResource("4_ingi6")
+metadata/_custom_type_script = "uid://tmhevtvj3bh8"
+
+[node name="SpawnRight" type="Node3D" parent="." unique_id=363686304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.889031, 0, 0)
+script = ExtResource("4_ingi6")
+metadata/_custom_type_script = "uid://tmhevtvj3bh8"

@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d3p2o8f1fwqja" path="res://ajan/sprites/3.png" id="3_lixql"]
 [ext_resource type="Texture2D" uid="uid://scuky3ke1e6t" path="res://ajan/sprites/4.png" id="4_6j4gy"]
 [ext_resource type="Texture2D" uid="uid://cws5eyim5vq8r" path="res://ajan/sprites/2-blink.png" id="5_viso7"]
+[ext_resource type="Texture2D" uid="uid://v36mi2tll87h" path="res://ajan/sprites/1-speak.png" id="7_mvr2f"]
+[ext_resource type="Texture2D" uid="uid://digfya1ymu07s" path="res://ajan/sprites/2-speak.png" id="8_iaycd"]
+[ext_resource type="Texture2D" uid="uid://defsjph4fa0uf" path="res://ajan/sprites/3-speak.png" id="9_sl5gp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6j4gy"]
 animations = [{
@@ -37,6 +40,47 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_1dmy4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_mvr2f")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_c2t2k")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_iaycd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_lixql")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_sl5gp")
+}, {
+"duration": 0.5,
+"texture": ExtResource("1_1dmy4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_mvr2f")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_viso7")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_iaycd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_lixql")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_sl5gp")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jx4bc"]
@@ -54,7 +98,6 @@ alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6j4gy")
 autoplay = "default"
-frame_progress = 0.62518567
 
 [node name="DirectionNode" type="Node3D" parent="." unique_id=377582358]
 

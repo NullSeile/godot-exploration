@@ -7,9 +7,8 @@ const JUMP_VELOCITY = 4.5
 var desired_angle: float = 0
 var on_dialogue: bool = false
 
-var current_interactable = null
-
 signal set_interactable(node: Node)
+var current_interactable = null
 
 
 func _ready() -> void:
@@ -20,6 +19,7 @@ func _ready() -> void:
 			current_interactable = body
 			$UI/interact.visible = true if body else false
 	)
+	$UI/interact.hide()
 
 
 func _unhandled_input(event: InputEvent) -> void:

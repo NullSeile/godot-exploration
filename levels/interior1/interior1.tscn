@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bwc8w7aauycfu"]
+
+[ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="2_6xk2y"]
+[ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="2_xcfsu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xcfsu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xk2y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhqlx"]
+size = Vector3(1.1885986, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xcfsu"]
+size = Vector3(0.68603516, 2.7651367, 1)
+
+[node name="Interior1" type="Node3D" unique_id=204303225]
+
+[node name="Floor" type="Node3D" parent="." unique_id=1185088021]
+transform = Transform3D(7.9437356, 0, 0, 0, 1, 0, 0, 0, 7.9437356, -0.07434583, 0, -1.2699952)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=291996404]
+mesh = SubResource("BoxMesh_xcfsu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1019830465]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1136385730]
+shape = SubResource("BoxShape3D_6xk2y")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=705787390 node_paths=PackedStringArray("area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8349237, 1.1358185, 0)
+script = ExtResource("2_6xk2y")
+area = NodePath("Area3D")
+scene_path = "uid://6rlejg253fy5"
+spawn_name = "SpawnRight"
+
+[node name="Area3D" type="Area3D" parent="Node3D" unique_id=236704529]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D" unique_id=2119954344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09429932, 0, 0)
+shape = SubResource("BoxShape3D_xhqlx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1990890999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.211555, 0.9030055, 2.3841858e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1288647100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15698242, 0.88256836, 0)
+shape = SubResource("BoxShape3D_xcfsu")
+
+[node name="Spawn" type="Node3D" parent="." unique_id=1705769679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.560253, 0.7713071, 0)
+script = ExtResource("2_xcfsu")
+metadata/_custom_type_script = "uid://tmhevtvj3bh8"
