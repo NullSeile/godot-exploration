@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bfu6mrry0ppbv" path="res://minigames/test1/minigame.gd" id="1_4bqly"]
 [ext_resource type="Script" uid="uid://sy8dxo47to47" path="res://minigames/test1/character_body_2d.gd" id="2_2wbbs"]
-[ext_resource type="Texture2D" uid="uid://h1557lj136ny" path="res://Pou_from_the_Pou_video_game.png" id="3_2wbbs"]
-[ext_resource type="Texture2D" uid="uid://2k2aenbaasi7" path="res://sky.jpg" id="4_xccfl"]
+[ext_resource type="Texture2D" uid="uid://h1557lj136ny" path="res://minigames/test1/pou.png" id="3_2wbbs"]
+[ext_resource type="Texture2D" uid="uid://2k2aenbaasi7" path="res://minigames/test1/sky.jpg" id="4_xccfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n4wl"]
 size = Vector2(630.5, 56.75)

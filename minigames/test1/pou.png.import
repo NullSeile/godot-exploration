@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2k2aenbaasi7"
-path="res://.godot/imported/sky.jpg-4edd319b4718930c5cb6979fecb9a4f3.ctex"
+uid="uid://h1557lj136ny"
+path="res://.godot/imported/pou.png-3af789bb7117cc62d6cbacbc2520deae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sky.jpg"
-dest_files=["res://.godot/imported/sky.jpg-4edd319b4718930c5cb6979fecb9a4f3.ctex"]
+source_file="res://minigames/test1/pou.png"
+dest_files=["res://.godot/imported/pou.png-3af789bb7117cc62d6cbacbc2520deae.ctex"]
 
 [params]
 

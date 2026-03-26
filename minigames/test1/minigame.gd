@@ -7,7 +7,7 @@ func create_static_body(
 	position: Vector2,
 	gradient: Gradient,         # Your gradient (colors, offsets)
 	size: Vector2,              # Size of the static body (and texture)
-	parent: Node = get_tree().current_scene
+	parent: Node
 ) -> void:
 	# Create the GradientTexture2D with the desired size
 	var gradient_tex := GradientTexture2D.new()
@@ -48,7 +48,7 @@ func _ready() -> void:
 	
 	for i in range(10):
 		if i % 2 == 0:
-			create_static_body(Vector2(600,200 - i*100), gradient, Vector2(200,40), game_world )
+			create_static_body(Vector2(600,200 - i*100), gradient, Vector2(200,40), game_world)
 		else:
 			create_static_body(Vector2(300,200 - i*100), gradient, Vector2(200,40), game_world)
 

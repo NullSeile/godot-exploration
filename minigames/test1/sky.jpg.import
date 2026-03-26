@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h1557lj136ny"
-path="res://.godot/imported/Pou_from_the_Pou_video_game.png-639e211880eddb1a44722f7c1cc832e0.ctex"
+uid="uid://2k2aenbaasi7"
+path="res://.godot/imported/sky.jpg-8c7c6b14a8a5a4140a4f0fcbe29a0749.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pou_from_the_Pou_video_game.png"
-dest_files=["res://.godot/imported/Pou_from_the_Pou_video_game.png-639e211880eddb1a44722f7c1cc832e0.ctex"]
+source_file="res://minigames/test1/sky.jpg"
+dest_files=["res://.godot/imported/sky.jpg-8c7c6b14a8a5a4140a4f0fcbe29a0749.ctex"]
 
 [params]
 
