@@ -26,16 +26,14 @@ mesh = SubResource("BoxMesh_xcfsu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1136385730]
 shape = SubResource("BoxShape3D_6xk2y")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=705787390 node_paths=PackedStringArray("area")]
+[node name="Area3D" type="Area3D" parent="." unique_id=236704529 node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8349237, 1.1358185, 0)
 script = ExtResource("2_6xk2y")
-area = NodePath("Area3D")
+area = NodePath(".")
 scene_path = "uid://6rlejg253fy5"
 spawn_name = "SpawnRight"
 
-[node name="Area3D" type="Area3D" parent="Node3D" unique_id=236704529]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D" unique_id=2119954344]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2119954344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09429932, 0, 0)
 shape = SubResource("BoxShape3D_xhqlx")
 
