@@ -1,7 +1,6 @@
 extends Node3D
 
-@onready var minigame_container = $Minigame
-var current_minigame = null
+var current_world = null
 
 
 func _minigame_finished() -> void:
@@ -10,19 +9,30 @@ func _minigame_finished() -> void:
 	$World.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
+func change_world(scene: String, spawn: String):
+	# $World.remove_child()
+	if current_world:
+		current_world.queue_free()
+	current_world = (load(scene) as PackedScene).instantiate()
+
+	$World/Player.position = current_world.find_child(spawn).position
+	$World.add_child(current_world)
+
+
 func launch_minigame() -> void:
 	var scene = load("res://minigames/test1/minigame.tscn").instantiate()
-	current_minigame = scene
-	$World.visible = false
+	$World.hide()
 	$World.process_mode = Node.PROCESS_MODE_DISABLED
 	scene.finished.connect(_minigame_finished)
 
-	minigame_container.add_child(scene)
+	$Minigame.add_child(scene)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass  # Replace with function body.
+	change_world("res://levels/overworld1/overworld1.tscn", "Spawn")
+	# current_world = load("res://levels/overworld1/overworld1.tscn").instantiate()
+	# $World.add_child(current_world)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
