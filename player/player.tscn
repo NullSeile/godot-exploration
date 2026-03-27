@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://b4jccvu5j6uy6"]
 
 [ext_resource type="Script" uid="uid://c7ofvd0ixk0uk" path="res://player/player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://c2h2p3mamngrm" path="res://player/frame.png" id="2_onrkg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkbax"]
 size = Vector3(0.75, 1.5, 0.75)
 
-[node name="Player" type="CharacterBody3D" unique_id=623117812 groups=["player"]]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oul6g"]
+load_path = "res://.godot/imported/frame.png-15d5929f4550ac267539506a928fd3e3.ctex"
+
+[node name="Player" type="CharacterBody3D" unique_id=623117812]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=615844148]
@@ -25,7 +27,7 @@ pixel_size = 0.07
 shaded = true
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("2_onrkg")
+texture = SubResource("CompressedTexture2D_oul6g")
 
 [node name="UI" type="Control" parent="." unique_id=1047114819]
 layout_mode = 3

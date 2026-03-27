@@ -4,7 +4,8 @@ var current_world = null
 
 
 func _minigame_finished() -> void:
-	$World.show()
+	$World.visible = true
+	$World/Player/Camera3D.make_current()
 	$World.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
