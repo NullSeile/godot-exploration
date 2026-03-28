@@ -1,7 +1,7 @@
 extends Node3D
 
 var desired_angle: float = 0
-var dialogue: DialogueResource = load("res://ajan/ajan.dialogue")
+var dialogue: DialogueResource = preload("res://ajan/ajan.dialogue")
 var can_interact: bool = false
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")

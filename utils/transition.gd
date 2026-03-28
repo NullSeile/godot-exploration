@@ -1,5 +1,7 @@
 extends Node3D
 
+var dialogue: DialogueResource = preload("res://utils/transition.dialogue")
+
 @export var area: Area3D
 @export_file("*.tscn") var scene_path: String
 @export var spawn_name: String
@@ -12,6 +14,10 @@ func interact() -> void:
 		push_error("Transition has no scene_path set: %s" % get_path())
 		return
 
+	DialogueManager.show_dialogue_balloon(dialogue, "start", [self])
+
+
+func transition() -> void:
 	get_tree().current_scene.change_world(scene_path, spawn_name)
 
 

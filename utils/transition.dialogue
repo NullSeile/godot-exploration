@@ -1,0 +1,5 @@
+~ start
+- Enter
+	do transition()
+- Cancel
+=> END

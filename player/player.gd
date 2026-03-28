@@ -37,7 +37,14 @@ func _process(delta: float) -> void:
 	elif velocity.x < 0:
 		desired_angle = -PI
 
-	$Sprite3D.rotation.y = lerpf($Sprite3D.rotation.y, desired_angle, delta * 10)
+	if absf(velocity.x) > 3.0:
+		for part in $Body.get_children():
+			part.play("walk")
+	else:
+		for part in $Body.get_children():
+			part.play("idle")
+
+	$Body.rotation.y = lerpf($Body.rotation.y, desired_angle, delta * 10)
 
 
 func _physics_process(delta: float) -> void:

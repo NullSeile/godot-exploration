@@ -14,7 +14,6 @@ background_mode = 2
 sky = SubResource("Sky_8uh7m")
 sdfgi_enabled = true
 glow_enabled = true
-volumetric_fog_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_37kl0"]
 
@@ -140,6 +139,7 @@ assets = SubResource("Terrain3DAssets_vbegm")
 physics_material = SubResource("PhysicsMaterial_37kl0")
 show_checkered = true
 top_level = true
+metadata/_edit_lock_ = true
 
 [node name="Ajan" parent="." unique_id=541447099 instance=ExtResource("2_gl88u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1036904, 0.008418322, -0.581445)
