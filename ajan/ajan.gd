@@ -9,6 +9,7 @@ var can_interact: bool = false
 
 func interact() -> void:
 	DialogueManager.show_dialogue_balloon(dialogue, "start")
+	$AnimatedSprite3D.play("talk")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,12 @@ func _ready() -> void:
 			if body.is_in_group("player"):
 				player.set_interactable.emit(null)
 				can_interact = false
+	)
+	
+	DialogueManager.dialogue_ended.connect(
+		func(resource: DialogueResource):
+			if resource == dialogue:
+				$AnimatedSprite3D.play("default")
 	)
 
 
