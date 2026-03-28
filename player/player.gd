@@ -10,6 +10,13 @@ var on_dialogue: bool = false
 signal set_interactable(node: Node)
 var current_interactable = null
 
+@export var hair_color: Color = Color(0.569, 0.349, 0.796)
+@export var skin_color: Color = Color(1, 0.753, 0.949)
+@export var eye_color: Color = Color(0.784, 0.435, 0.71)
+@export var shirt_color: Color = Color(0.835, 0.533, 0.878)
+@export var sleeves_color: Color = Color(0.835, 0.533, 0.878)
+@export var pants_color: Color = Color(0.573, 0.349, 0.8)
+
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(func(_a): on_dialogue = true)
@@ -31,18 +38,96 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().current_scene.launch_minigame()
 
 
+func shaded(color: Color) -> Color:
+	color.ok_hsl_l -= 0.06
+	color.ok_hsl_s += 0.01
+	return color
+
+
 func _process(delta: float) -> void:
 	if velocity.x > 0:
 		desired_angle = 0
 	elif velocity.x < 0:
 		desired_angle = -PI
 
+	(
+		$Body/Hair
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
+				hair_color,
+				shaded(hair_color),
+			]
+		)
+	)
+	(
+		$Body/Body
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
+				skin_color,
+				shaded(skin_color),
+			]
+		)
+	)
+	(
+		$Body/Head
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
+				skin_color,
+				shaded(skin_color),
+			]
+		)
+	)
+	var blush_color = skin_color
+	blush_color.ok_hsl_l -= 0.05
+	blush_color.ok_hsl_s += 0.00
+
+	if blush_color.ok_hsl_h > 0.5:
+		blush_color.ok_hsl_h += 0.02
+	else:
+		blush_color.ok_hsl_h -= 0.02
+
+	(
+		$Body/Eyes
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
+				blush_color,
+				shaded(blush_color),
+				eye_color,
+			]
+		)
+	)
+	(
+		$Body/Cloths
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
+				shirt_color,
+				shaded(shirt_color),
+				sleeves_color,
+				shaded(sleeves_color),
+				pants_color,
+				shaded(pants_color),
+			]
+		)
+	)
+
 	if absf(velocity.x) > 3.0:
 		for part in $Body.get_children():
-			part.play("walk")
+			var p: AnimatedSprite3D = part as AnimatedSprite3D
+			p.play("walk")
 	else:
 		for part in $Body.get_children():
-			part.play("idle")
+			var p: AnimatedSprite3D = part as AnimatedSprite3D
+			p.play("idle")
 
 	$Body.rotation.y = lerpf($Body.rotation.y, desired_angle, delta * 10)
 
