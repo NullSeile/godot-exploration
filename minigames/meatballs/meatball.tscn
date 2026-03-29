@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cnmgqumod87s0"]
+
+[ext_resource type="Texture2D" uid="uid://h1557lj136ny" path="res://minigames/test1/pou.png" id="1_wkxqx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1352d"]
+friction = 0.81
+rough = true
+bounce = 0.02
+absorbent = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cq86"]
+radius = 26.076809
+
+[node name="meatball" type="RigidBody2D" unique_id=1999691601]
+physics_material_override = SubResource("PhysicsMaterial_1352d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1436450779]
+scale = Vector2(0.15229885, 0.15229885)
+texture = ExtResource("1_wkxqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920172287]
+shape = SubResource("CircleShape2D_0cq86")
