@@ -49,7 +49,7 @@ func crear_paper() -> void:
 	body.freeze = true
 	
 	var button = Button.new()
-	button.text = "Continue"
+	button.text = "Accept"
 	button.position = body.global_position + Vector2(100, 200)   # Position relative to parent
 	# If you want global position, add button to a CanvasLayer or set its global_position
 	add_child(button)   # Add it to the current node (or any CanvasItem)
@@ -61,11 +61,11 @@ func crear_paper() -> void:
 	button.queue_free()
 	
 	body.freeze = false
-	var vert_forces = [0,0,0,0,0,100000]
-	
+	#var vert_forces = [0,0,0,0,0,100000]
+	# -1 * vert_forces[rng.randi_range(0, vert_forces.size()-1)]
 	body.apply_force(
-		Vector2(5000 * rng.randf_range(-50,0),
-				-1 * vert_forces[rng.randi_range(0, vert_forces.size()-1)]),
+		Vector2(5000 * rng.randf_range(-50,1),
+				5000 * rng.randf_range(-50,1)),
 		body.global_position + Vector2(rng.randf_range(-200,200), rng.randf_range(-250,250))
 	)
 	
