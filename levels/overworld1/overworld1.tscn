@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://6rlejg253fy5"]
 
-[ext_resource type="PackedScene" uid="uid://cqmxnlov00xcs" path="res://ajan/ajan.tscn" id="2_gl88u"]
+[ext_resource type="PackedScene" uid="uid://cqmxnlov00xcs" path="res://NPCs/ajan/ajan.tscn" id="2_gl88u"]
 [ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="3_ingi6"]
-[ext_resource type="PackedScene" uid="uid://cxyo2dtpswkqw" path="res://el-sergi/el-sergi.tscn" id="4_am23j"]
+[ext_resource type="PackedScene" uid="uid://cxyo2dtpswkqw" path="res://NPCs/el-sergi/el-sergi.tscn" id="4_am23j"]
 [ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="4_ingi6"]
-[ext_resource type="PackedScene" uid="uid://dblmxh87e2rln" path="res://flower-alien/flower-alien.tscn" id="5_am23j"]
+[ext_resource type="PackedScene" uid="uid://dblmxh87e2rln" path="res://NPCs/flower-alien/flower-alien.tscn" id="5_am23j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37kl0"]
 
