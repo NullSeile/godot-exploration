@@ -50,14 +50,10 @@ func crear_paper() -> void:
 	
 	var button = Button.new()
 	button.text = "Accept"
-	button.position = body.global_position + Vector2(100, 200)   # Position relative to parent
-	# If you want global position, add button to a CanvasLayer or set its global_position
-	add_child(button)   # Add it to the current node (or any CanvasItem)
+	button.position = Vector2(100, 200)
+	add_child(button)   # Add it to the current node
 
-	# Wait for the button to be pressed
 	await button.pressed
-
-	# After the button is pressed, remove it (optional)
 	button.queue_free()
 	
 	body.freeze = false
