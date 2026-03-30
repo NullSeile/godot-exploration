@@ -66,7 +66,10 @@ func _process(delta: float) -> void:
 		cum_velocity += delta * direction
 		cum_velocity = cum_velocity.normalized() * clamp(cum_velocity.length(), 0, 1)
 		meatball.position = cum_velocity.normalized() * (1 - exp(-cum_velocity.length() * 3)) * 100
-		# meatball.position = cum_velocity * 100
+
+		$Aiming.mesh.size = Vector2(cum_velocity.length() * 200, 5)
+		$Aiming.position = $SpawnMeatball.position - cum_velocity * 100
+		$Aiming.rotation = cum_velocity.angle()
 
 	$UI/MeatballCounter.text = "Count: " + str(counter)
 
