@@ -66,7 +66,7 @@ func crear_paper() -> void:
 	body.apply_force(
 		Vector2(5000 * rng.randf_range(-50,1),
 				5000 * rng.randf_range(-50,1)),
-		body.global_position + Vector2(rng.randf_range(-200,200), rng.randf_range(-250,250))
+		body.global_position + Vector2(rng.randf_range(-200,0), rng.randf_range(-250,250))
 	)
 	
 	await get_tree().create_timer(2.0).timeout
