@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 const PUSH_FORCE = 25.0
@@ -34,4 +33,5 @@ func _physics_process(delta: float) -> void:
 			var push_vector := -collision.get_normal() * PUSH_FORCE
 			collider.apply_central_impulse(push_vector)
 	
+
 	

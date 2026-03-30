@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 signal finished
 
@@ -36,14 +36,15 @@ func create_static_body(
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$SubViewportContainer/SubViewport/Node2D/CharacterBody2D/Camera2D.make_current()
-	
+	$SubViewportContainer/SubViewport/MinigamePlatform/CharacterBody2D/Camera2D.make_current()
+	print(self is Control)
+			
 	# Crear plataformes
 	var gradient := Gradient.new()
 	gradient.colors = [Color.BLACK, Color.WHITE]
 	gradient.offsets = [0.0, 0.5]
 	
-	var game_world = $SubViewportContainer/SubViewport/Node2D
+	var game_world = $SubViewportContainer/SubViewport/MinigamePlatform
 	
 	
 	for i in range(10):
@@ -61,5 +62,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	finished.emit()
-	queue_free()
+	print("Hey")

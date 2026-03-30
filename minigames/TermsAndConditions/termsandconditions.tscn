@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bvwyww44d2ttk"]
+
+[ext_resource type="Script" uid="uid://bn26t67h7ws4v" path="res://minigames/TermsAndConditions/termsandconditionsmain.gd" id="1_tyixx"]
+
+[node name="Termsandconditions" type="Node2D" unique_id=221544129]
+script = ExtResource("1_tyixx")
