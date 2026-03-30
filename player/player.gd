@@ -10,12 +10,41 @@ var on_dialogue: bool = false
 signal set_interactable(node: Node)
 var current_interactable = null
 
+enum HairStyle { BOB, SHORT, TOUPE }
+var hair_styles = {
+	HairStyle.BOB: preload("res://player/animation/hair/hair_bob_atlas.png"),
+	HairStyle.SHORT: preload("res://player/animation/hair/hair_short_atlas.png"),
+	HairStyle.TOUPE: preload("res://player/animation/hair/hair_toupe_atlas.png"),
+}
+
+enum HeadStyle { HUMAN, CANINE }
+var head_styles = {
+	HeadStyle.HUMAN: preload("res://player/animation/head/head_human_atlas.png"),
+	HeadStyle.CANINE: preload("res://player/animation/head/head_canine_atlas.png"),
+}
+
+enum EyeStyle { EYE1, EYE2, EYE3, EYE4, EYE5, EYE6, EYE7 }
+var eye_styles = {
+	EyeStyle.EYE1: preload("res://player/animation/eyes/eyes1_atlas.png"),
+	EyeStyle.EYE2: preload("res://player/animation/eyes/eyes2_atlas.png"),
+	EyeStyle.EYE3: preload("res://player/animation/eyes/eyes3_atlas.png"),
+	EyeStyle.EYE4: preload("res://player/animation/eyes/eyes4_atlas.png"),
+	EyeStyle.EYE5: preload("res://player/animation/eyes/eyes5_atlas.png"),
+	EyeStyle.EYE6: preload("res://player/animation/eyes/eyes6_atlas.png"),
+	EyeStyle.EYE7: preload("res://player/animation/eyes/eyes7_atlas.png"),
+}
+
+@export var hair_style: HairStyle = HairStyle.BOB
+@export var head_style: HeadStyle = HeadStyle.HUMAN
+@export var eye_style: EyeStyle = EyeStyle.EYE1
+
 @export var hair_color: Color = Color(0.569, 0.349, 0.796)
 @export var skin_color: Color = Color(1, 0.753, 0.949)
 @export var eye_color: Color = Color(0.784, 0.435, 0.71)
+@export var eye_white_color: Color = Color(1, 0.89, 0.97)
 @export var shirt_color: Color = Color(0.835, 0.533, 0.878)
-@export var sleeves_color: Color = Color(0.835, 0.533, 0.878)
 @export var pants_color: Color = Color(0.573, 0.349, 0.8)
+@export var snout_color: Color = Color(0.784, 0.435, 0.71)
 
 
 func _ready() -> void:
@@ -44,11 +73,26 @@ func shaded(color: Color) -> Color:
 	return color
 
 
+func blend(color: Color, other: Color, alpha: float) -> Color:
+	color.a = alpha
+	other.a = 1.0 - alpha
+	return color.blend(other)
+
+
 func _process(delta: float) -> void:
 	if velocity.x > 0:
 		desired_angle = 0
 	elif velocity.x < 0:
 		desired_angle = -PI
+
+	$Body/Hair.material_override.set_shader_parameter("current_atlas", hair_styles[hair_style])
+	$Body/Head.material_override.set_shader_parameter("current_atlas", head_styles[head_style])
+	$Body/Eyes.material_override.set_shader_parameter("current_atlas", eye_styles[eye_style])
+
+	if head_style != HeadStyle.HUMAN:
+		$Body/Hair.hide()
+	else:
+		$Body/Hair.show()
 
 	(
 		$Body/Hair
@@ -58,6 +102,8 @@ func _process(delta: float) -> void:
 			[
 				hair_color,
 				shaded(hair_color),
+				blend(hair_color, skin_color, 0.7),
+				blend(shaded(hair_color), shaded(skin_color), 0.7),
 			]
 		)
 	)
@@ -80,6 +126,7 @@ func _process(delta: float) -> void:
 			[
 				skin_color,
 				shaded(skin_color),
+				snout_color,
 			]
 		)
 	)
@@ -99,28 +146,30 @@ func _process(delta: float) -> void:
 			"colors",
 			[
 				blush_color,
-				shaded(blush_color),
+				skin_color if head_style == HeadStyle.CANINE else shaded(blush_color),
 				eye_color,
+				eye_white_color,
+				eye_white_color,
 			]
 		)
 	)
 	(
-		$Body/Cloths
+		$Body/Clothes
 		. material_override
 		. set_shader_parameter(
 			"colors",
 			[
 				shirt_color,
 				shaded(shirt_color),
-				sleeves_color,
-				shaded(sleeves_color),
+				shirt_color,
+				shaded(shirt_color),
 				pants_color,
 				shaded(pants_color),
 			]
 		)
 	)
 
-	if absf(velocity.x) > 3.0:
+	if absf(velocity.x) > 1.0:
 		for part in $Body.get_children():
 			var p: AnimatedSprite3D = part as AnimatedSprite3D
 			p.play("walk")

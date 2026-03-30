@@ -1,15 +1,15 @@
 shader_type spatial;
-uniform sampler2D current_frame : source_color, filter_nearest;
+uniform sampler2D current_atlas : source_color, filter_nearest;
 uniform vec3[6] colors : source_color;
 render_mode depth_draw_opaque, cull_disabled;
-// render_mode unshaded;
+//render_mode unshaded;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
-	vec4 tex = texture(current_frame, UV);
+	vec4 tex = texture(current_atlas, UV);
 	if (tex.rgb == vec3(0,0,0)) {
 		ALBEDO = colors[0];
 	} else if (tex.rgb == vec3(0,0,1)) {

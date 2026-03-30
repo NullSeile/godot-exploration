@@ -4,7 +4,7 @@ importer="texture_atlas"
 type="Texture2D"
 uid="uid://byd31aga7e6ag"
 path="res://.godot/imported/clothes-walking-4.png-59e0ee923be006b3e9bd7c436914e8cf.res"
-group_file="res://player/player_atlas.png"
+group_file="res://player/animation/clothes_atlas.png"
 valid=true
 [deps]
 
@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/clothes-walking-4.png-59e0ee923be006b3e9bd7c4
 
 [params]
 
-atlas_file="res://player/player_atlas.png"
+atlas_file="res://player/animation/clothes_atlas.png"
 import_mode=0
 crop_to_region=false
 trim_alpha_border_from_region=false

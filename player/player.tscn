@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c7ofvd0ixk0uk" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://cqagt4a6jp2u" path="res://player/animation/body/body-standing-1.png" id="2_kb6p2"]
 [ext_resource type="Shader" uid="uid://cec5aj4oppuc1" path="res://player/player.gdshader" id="2_s3g0c"]
-[ext_resource type="Texture2D" uid="uid://cnoblmwdcw1nq" path="res://player/player_atlas.png" id="3_pjwc4"]
+[ext_resource type="Texture2D" uid="uid://dhsnexd35cluq" path="res://player/animation/body_atlas.png" id="3_7l6ig"]
 [ext_resource type="Texture2D" uid="uid://divpx2ub5bt31" path="res://player/animation/body/body-standing-2.png" id="3_wodsf"]
 [ext_resource type="Texture2D" uid="uid://7olodmeoavlx" path="res://player/animation/body/body-standing-3.png" id="4_32hag"]
 [ext_resource type="Texture2D" uid="uid://c50knqpnpx76k" path="res://player/animation/body/body-standing-4.png" id="5_tqiix"]
@@ -15,50 +15,54 @@
 [ext_resource type="Texture2D" uid="uid://ctpjbgcfws5f4" path="res://player/animation/body/body-walking-6.png" id="11_bjvpn"]
 [ext_resource type="Texture2D" uid="uid://fxib7tnxuq5g" path="res://player/animation/body/body-walking-7.png" id="12_s7qer"]
 [ext_resource type="Texture2D" uid="uid://d28trrdtre8ue" path="res://player/animation/body/body-walking-8.png" id="13_g4c7l"]
-[ext_resource type="Texture2D" uid="uid://cmane2ppdnbdt" path="res://player/animation/hair/hair-bob-standing-1.png" id="14_7pqkx"]
-[ext_resource type="Texture2D" uid="uid://b000q3r4je7g2" path="res://player/animation/hair/hair-bob-standing-2.png" id="15_uw77l"]
-[ext_resource type="Texture2D" uid="uid://0o17p7n24gq3" path="res://player/animation/hair/hair-bob-standing-3.png" id="16_rptt4"]
-[ext_resource type="Texture2D" uid="uid://bssl5erxbwmwv" path="res://player/animation/hair/hair-bob-standing-4.png" id="17_r7pn3"]
-[ext_resource type="Texture2D" uid="uid://n24op81amxej" path="res://player/animation/hair/hair-bob-walking-1.png" id="18_b8hi5"]
-[ext_resource type="Texture2D" uid="uid://dgixxgl6b2yg1" path="res://player/animation/hair/hair-bob-walking-2.png" id="19_2uvqg"]
-[ext_resource type="Texture2D" uid="uid://b3e43l81dvmbf" path="res://player/animation/hair/hair-bob-walking-3.png" id="20_1s1yo"]
-[ext_resource type="Texture2D" uid="uid://dgucwsqp3h8od" path="res://player/animation/hair/hair-bob-walking-4.png" id="21_5ejfk"]
-[ext_resource type="Texture2D" uid="uid://btk0psrf8crht" path="res://player/animation/hair/hair-bob-walking-5.png" id="22_jd2rm"]
-[ext_resource type="Texture2D" uid="uid://bt88gafo1u06" path="res://player/animation/hair/hair-bob-walking-6.png" id="23_q28gw"]
-[ext_resource type="Texture2D" uid="uid://crc5wv6kfduhk" path="res://player/animation/hair/hair-bob-walking-7.png" id="24_ge24q"]
-[ext_resource type="Texture2D" uid="uid://yenu8xx6ug2q" path="res://player/animation/hair/hair-bob-walking-8.png" id="25_pnw6m"]
-[ext_resource type="Texture2D" uid="uid://csa6aspumksiu" path="res://player/animation/head/head-human-standing-1.png" id="26_b8hi5"]
-[ext_resource type="Texture2D" uid="uid://fak5aafux7er" path="res://player/animation/head/head-human-standing-2.png" id="27_2uvqg"]
-[ext_resource type="Texture2D" uid="uid://drffklhjatsbm" path="res://player/animation/head/head-human-standing-3.png" id="28_1s1yo"]
-[ext_resource type="Texture2D" uid="uid://brttg6c0nkr31" path="res://player/animation/head/head-human-standing-4.png" id="29_5ejfk"]
-[ext_resource type="Texture2D" uid="uid://b3d147xnd7rsf" path="res://player/animation/head/head-human-walking-1.png" id="30_1so5t"]
-[ext_resource type="Texture2D" uid="uid://t4pa8pdr7i2g" path="res://player/animation/head/head-human-walking-2.png" id="31_55jnj"]
-[ext_resource type="Texture2D" uid="uid://yaifemgb7kn2" path="res://player/animation/head/head-human-walking-3.png" id="32_dx5ib"]
-[ext_resource type="Texture2D" uid="uid://lhdynwxrhqyf" path="res://player/animation/head/head-human-walking-4.png" id="33_a2xo5"]
-[ext_resource type="Texture2D" uid="uid://kdutxguvj0u5" path="res://player/animation/head/head-human-walking-5.png" id="34_art4l"]
-[ext_resource type="Texture2D" uid="uid://cyathmg026wc7" path="res://player/animation/head/head-human-walking-6.png" id="35_fjxoa"]
-[ext_resource type="Texture2D" uid="uid://51psyiw7jy5n" path="res://player/animation/head/head-human-walking-7.png" id="36_gswnw"]
-[ext_resource type="Texture2D" uid="uid://bcxhgusnlvew3" path="res://player/animation/head/head-human-walking-8.png" id="37_xcnuv"]
-[ext_resource type="Texture2D" uid="uid://drg1aoew7i5sf" path="res://player/animation/eyes/eyes1-standing-1.png" id="38_fjxoa"]
-[ext_resource type="Texture2D" uid="uid://bw5x10gosx12b" path="res://player/animation/eyes/eyes1-standing-2.png" id="39_gswnw"]
-[ext_resource type="Texture2D" uid="uid://bvte13s7211o1" path="res://player/animation/eyes/eyes1-standing-3.png" id="40_xcnuv"]
-[ext_resource type="Texture2D" uid="uid://ctwgkvb5fenkx" path="res://player/animation/eyes/eyes1-standing-4.png" id="41_j55il"]
-[ext_resource type="Texture2D" uid="uid://baan8s4geqxmy" path="res://player/animation/eyes/eyes1-standing-1-blink.png" id="42_hjies"]
-[ext_resource type="Texture2D" uid="uid://d3hdno4on8ipr" path="res://player/animation/eyes/eyes1-walking-1.png" id="43_n0b8q"]
-[ext_resource type="Texture2D" uid="uid://dxnlx4uya6lx3" path="res://player/animation/eyes/eyes1-walking-2.png" id="44_jfgyi"]
-[ext_resource type="Texture2D" uid="uid://cw30nau4ncs4v" path="res://player/animation/eyes/eyes1-walking-3.png" id="45_237xx"]
-[ext_resource type="Texture2D" uid="uid://b1et4mmihahca" path="res://player/animation/eyes/eyes1-walking-4.png" id="46_wpyo2"]
-[ext_resource type="Texture2D" uid="uid://dtimm0vy6exak" path="res://player/animation/eyes/eyes1-walking-5.png" id="47_7crtr"]
-[ext_resource type="Texture2D" uid="uid://cyhkxuhxp4hxu" path="res://player/animation/eyes/eyes1-walking-6.png" id="48_vgvch"]
-[ext_resource type="Texture2D" uid="uid://56tlaoslmgs" path="res://player/animation/eyes/eyes1-walking-7.png" id="49_a1u5o"]
-[ext_resource type="Texture2D" uid="uid://bh1muk8ocrwy8" path="res://player/animation/eyes/eyes1-walking-8.png" id="50_3dxkp"]
-[ext_resource type="Texture2D" uid="uid://xftywro2nm6s" path="res://player/animation/eyes/eyes1-walking-4-blink.png" id="51_6wior"]
+[ext_resource type="Texture2D" uid="uid://cmane2ppdnbdt" path="res://player/animation/hair/bob/hair-bob-standing-1.png" id="14_7pqkx"]
+[ext_resource type="Texture2D" uid="uid://b000q3r4je7g2" path="res://player/animation/hair/bob/hair-bob-standing-2.png" id="15_uw77l"]
+[ext_resource type="Texture2D" uid="uid://d34bacrgs55kh" path="res://player/animation/hair/hair_bob_atlas.png" id="16_j3r50"]
+[ext_resource type="Texture2D" uid="uid://0o17p7n24gq3" path="res://player/animation/hair/bob/hair-bob-standing-3.png" id="16_rptt4"]
+[ext_resource type="Texture2D" uid="uid://bssl5erxbwmwv" path="res://player/animation/hair/bob/hair-bob-standing-4.png" id="17_r7pn3"]
+[ext_resource type="Texture2D" uid="uid://n24op81amxej" path="res://player/animation/hair/bob/hair-bob-walking-1.png" id="18_b8hi5"]
+[ext_resource type="Texture2D" uid="uid://dgixxgl6b2yg1" path="res://player/animation/hair/bob/hair-bob-walking-2.png" id="19_2uvqg"]
+[ext_resource type="Texture2D" uid="uid://b3e43l81dvmbf" path="res://player/animation/hair/bob/hair-bob-walking-3.png" id="20_1s1yo"]
+[ext_resource type="Texture2D" uid="uid://dgucwsqp3h8od" path="res://player/animation/hair/bob/hair-bob-walking-4.png" id="21_5ejfk"]
+[ext_resource type="Texture2D" uid="uid://btk0psrf8crht" path="res://player/animation/hair/bob/hair-bob-walking-5.png" id="22_jd2rm"]
+[ext_resource type="Texture2D" uid="uid://bt88gafo1u06" path="res://player/animation/hair/bob/hair-bob-walking-6.png" id="23_q28gw"]
+[ext_resource type="Texture2D" uid="uid://crc5wv6kfduhk" path="res://player/animation/hair/bob/hair-bob-walking-7.png" id="24_ge24q"]
+[ext_resource type="Texture2D" uid="uid://yenu8xx6ug2q" path="res://player/animation/hair/bob/hair-bob-walking-8.png" id="25_pnw6m"]
+[ext_resource type="Texture2D" uid="uid://csa6aspumksiu" path="res://player/animation/head/human/head-human-standing-1.png" id="26_b8hi5"]
+[ext_resource type="Texture2D" uid="uid://fak5aafux7er" path="res://player/animation/head/human/head-human-standing-2.png" id="27_2uvqg"]
+[ext_resource type="Texture2D" uid="uid://drffklhjatsbm" path="res://player/animation/head/human/head-human-standing-3.png" id="28_1s1yo"]
+[ext_resource type="Texture2D" uid="uid://brttg6c0nkr31" path="res://player/animation/head/human/head-human-standing-4.png" id="29_5ejfk"]
+[ext_resource type="Texture2D" uid="uid://dwhqvwl0a5xtj" path="res://player/animation/head/head_human_atlas.png" id="29_utr5e"]
+[ext_resource type="Texture2D" uid="uid://b3d147xnd7rsf" path="res://player/animation/head/human/head-human-walking-1.png" id="30_1so5t"]
+[ext_resource type="Texture2D" uid="uid://t4pa8pdr7i2g" path="res://player/animation/head/human/head-human-walking-2.png" id="31_55jnj"]
+[ext_resource type="Texture2D" uid="uid://yaifemgb7kn2" path="res://player/animation/head/human/head-human-walking-3.png" id="32_dx5ib"]
+[ext_resource type="Texture2D" uid="uid://lhdynwxrhqyf" path="res://player/animation/head/human/head-human-walking-4.png" id="33_a2xo5"]
+[ext_resource type="Texture2D" uid="uid://kdutxguvj0u5" path="res://player/animation/head/human/head-human-walking-5.png" id="34_art4l"]
+[ext_resource type="Texture2D" uid="uid://cyathmg026wc7" path="res://player/animation/head/human/head-human-walking-6.png" id="35_fjxoa"]
+[ext_resource type="Texture2D" uid="uid://51psyiw7jy5n" path="res://player/animation/head/human/head-human-walking-7.png" id="36_gswnw"]
+[ext_resource type="Texture2D" uid="uid://bcxhgusnlvew3" path="res://player/animation/head/human/head-human-walking-8.png" id="37_xcnuv"]
+[ext_resource type="Texture2D" uid="uid://drg1aoew7i5sf" path="res://player/animation/eyes/eyes1/eyes1-standing-1.png" id="38_fjxoa"]
+[ext_resource type="Texture2D" uid="uid://bw5x10gosx12b" path="res://player/animation/eyes/eyes1/eyes1-standing-2.png" id="39_gswnw"]
+[ext_resource type="Texture2D" uid="uid://bvte13s7211o1" path="res://player/animation/eyes/eyes1/eyes1-standing-3.png" id="40_xcnuv"]
+[ext_resource type="Texture2D" uid="uid://ctwgkvb5fenkx" path="res://player/animation/eyes/eyes1/eyes1-standing-4.png" id="41_j55il"]
+[ext_resource type="Texture2D" uid="uid://s4vn8byxvh8p" path="res://player/animation/eyes/eyes1_atlas.png" id="42_7l6ig"]
+[ext_resource type="Texture2D" uid="uid://baan8s4geqxmy" path="res://player/animation/eyes/eyes1/eyes1-standing-1-blink.png" id="42_hjies"]
+[ext_resource type="Texture2D" uid="uid://d3hdno4on8ipr" path="res://player/animation/eyes/eyes1/eyes1-walking-1.png" id="43_n0b8q"]
+[ext_resource type="Texture2D" uid="uid://dxnlx4uya6lx3" path="res://player/animation/eyes/eyes1/eyes1-walking-2.png" id="44_jfgyi"]
+[ext_resource type="Texture2D" uid="uid://cw30nau4ncs4v" path="res://player/animation/eyes/eyes1/eyes1-walking-3.png" id="45_237xx"]
+[ext_resource type="Texture2D" uid="uid://b1et4mmihahca" path="res://player/animation/eyes/eyes1/eyes1-walking-4.png" id="46_wpyo2"]
+[ext_resource type="Texture2D" uid="uid://dtimm0vy6exak" path="res://player/animation/eyes/eyes1/eyes1-walking-5.png" id="47_7crtr"]
+[ext_resource type="Texture2D" uid="uid://cyhkxuhxp4hxu" path="res://player/animation/eyes/eyes1/eyes1-walking-6.png" id="48_vgvch"]
+[ext_resource type="Texture2D" uid="uid://56tlaoslmgs" path="res://player/animation/eyes/eyes1/eyes1-walking-7.png" id="49_a1u5o"]
+[ext_resource type="Texture2D" uid="uid://bh1muk8ocrwy8" path="res://player/animation/eyes/eyes1/eyes1-walking-8.png" id="50_3dxkp"]
+[ext_resource type="Texture2D" uid="uid://xftywro2nm6s" path="res://player/animation/eyes/eyes1/eyes1-walking-4-blink.png" id="51_6wior"]
 [ext_resource type="Texture2D" uid="uid://i7g7c1r24ogu" path="res://player/animation/clothes/clothes-standing-1.png" id="52_35wys"]
 [ext_resource type="Texture2D" uid="uid://csx2wdvei1sgt" path="res://player/animation/clothes/clothes-standing-2.png" id="53_pjwc4"]
 [ext_resource type="Texture2D" uid="uid://dee7f7bpi25pd" path="res://player/animation/clothes/clothes-standing-3.png" id="54_or4qq"]
 [ext_resource type="Texture2D" uid="uid://de5jmseyslp5x" path="res://player/animation/clothes/clothes-standing-4.png" id="55_hggc2"]
 [ext_resource type="Texture2D" uid="uid://dbgs4x3prpcnk" path="res://player/animation/clothes/clothes-walking-1.png" id="56_b2j0d"]
 [ext_resource type="Texture2D" uid="uid://bscurg63lot2y" path="res://player/animation/clothes/clothes-walking-2.png" id="57_7l6ig"]
+[ext_resource type="Texture2D" uid="uid://703bdfaql4sl" path="res://player/animation/clothes_atlas.png" id="57_kewli"]
 [ext_resource type="Texture2D" uid="uid://dpv1feu5jreyb" path="res://player/animation/clothes/clothes-walking-3.png" id="58_j3r50"]
 [ext_resource type="Texture2D" uid="uid://byd31aga7e6ag" path="res://player/animation/clothes/clothes-walking-4.png" id="59_utr5e"]
 [ext_resource type="Texture2D" uid="uid://d4hv6501oylxc" path="res://player/animation/clothes/clothes-walking-5.png" id="60_kewli"]
@@ -72,7 +76,7 @@ size = Vector3(0.75, 1.5, 0.75)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pjwc4"]
 render_priority = 0
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_frame = ExtResource("3_pjwc4")
+shader_parameter/current_atlas = ExtResource("3_7l6ig")
 shader_parameter/colors = PackedColorArray(1, 0.7529412, 0.9490196, 1, 0.9529412, 0.6431373, 0.88235295, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oul6g"]
@@ -127,8 +131,8 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_or4qq"]
 render_priority = 1
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_frame = ExtResource("3_pjwc4")
-shader_parameter/colors = PackedColorArray(0.5686275, 0.34901962, 0.79607844, 1, 0.5686275, 0.2509804, 0.75686276, 1)
+shader_parameter/current_atlas = ExtResource("16_j3r50")
+shader_parameter/colors = PackedColorArray(0.5686275, 0.34901962, 0.79607844, 1, 0.5686275, 0.2509804, 0.75686276, 1, 0.7411765, 0.5254902, 0.8745098, 1, 0.68235296, 0.41568628, 0.84705883, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yllr7"]
 animations = [{
@@ -182,8 +186,8 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hggc2"]
 render_priority = 0
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_frame = ExtResource("3_pjwc4")
-shader_parameter/colors = PackedColorArray(1, 0.7529412, 0.9490196, 1, 0.95686275, 0.6392157, 0.88235295, 1)
+shader_parameter/current_atlas = ExtResource("29_utr5e")
+shader_parameter/colors = PackedColorArray(1, 0.7529412, 0.9490196, 1, 0.95686275, 0.6392157, 0.88235295, 1, 0.78431374, 0.43529412, 0.70980394, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c35mf"]
 animations = [{
@@ -237,8 +241,8 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b2j0d"]
 render_priority = 3
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_frame = ExtResource("3_pjwc4")
-shader_parameter/colors = PackedColorArray(0.96862745, 0.6313726, 0.89411765, 1, 0.9411765, 0.5647059, 0.85490197, 1, 0.78431374, 0.43529412, 0.70980394, 1)
+shader_parameter/current_atlas = ExtResource("42_7l6ig")
+shader_parameter/colors = PackedColorArray(0.96862745, 0.6313726, 0.89411765, 1, 0.9411765, 0.5647059, 0.85490197, 1, 0.78431374, 0.43529412, 0.70980394, 1, 1, 0.8901961, 0.9764706, 1, 1, 0.81960785, 0.9647059, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65viv"]
 animations = [{
@@ -328,7 +332,7 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7l6ig"]
 render_priority = 1
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_frame = ExtResource("3_pjwc4")
+shader_parameter/current_atlas = ExtResource("57_kewli")
 shader_parameter/colors = PackedColorArray(0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1, 0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1, 0.57254905, 0.34901962, 0.8, 1, 0.57254905, 0.24705882, 0.7647059, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjvpn"]
@@ -396,7 +400,7 @@ transform = Transform3D(1, 0, 0, 0, 0.96481943, 0.26291335, 0, -0.26291335, 0.96
 material_override = SubResource("ShaderMaterial_pjwc4")
 cast_shadow = 2
 centered = false
-offset = Vector2(-6.5, 0)
+offset = Vector2(-12.5, 0)
 pixel_size = 0.07
 shaded = true
 alpha_cut = 2
@@ -409,7 +413,7 @@ autoplay = "idle"
 material_override = SubResource("ShaderMaterial_or4qq")
 cast_shadow = 2
 centered = false
-offset = Vector2(-6.5, 0)
+offset = Vector2(-12.5, 0)
 pixel_size = 0.07
 shaded = true
 alpha_cut = 2
@@ -423,7 +427,7 @@ autoplay = "idle"
 material_override = SubResource("ShaderMaterial_hggc2")
 cast_shadow = 2
 centered = false
-offset = Vector2(-6.5, 0)
+offset = Vector2(-12.5, 0)
 pixel_size = 0.07
 shaded = true
 alpha_cut = 2
@@ -436,7 +440,7 @@ autoplay = "idle"
 material_override = SubResource("ShaderMaterial_b2j0d")
 cast_shadow = 2
 centered = false
-offset = Vector2(-6.5, 0)
+offset = Vector2(-12.5, 0)
 pixel_size = 0.07
 shaded = true
 alpha_cut = 2
@@ -446,11 +450,11 @@ sprite_frames = SubResource("SpriteFrames_65viv")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Cloths" type="AnimatedSprite3D" parent="Body" unique_id=1224151303]
+[node name="Clothes" type="AnimatedSprite3D" parent="Body" unique_id=1224151303]
 material_override = SubResource("ShaderMaterial_7l6ig")
 cast_shadow = 2
 centered = false
-offset = Vector2(-6.5, 0)
+offset = Vector2(-12.5, 0)
 pixel_size = 0.07
 shaded = true
 alpha_cut = 2
