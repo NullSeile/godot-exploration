@@ -48,6 +48,43 @@ func new_meatball() -> void:
 	meatball.freeze = true
 
 
+func trajectory() -> void:
+	var meatball_pos: Vector2 = meatball.global_position
+	var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	var drag: float = ProjectSettings.get_setting("physics/2d/default_linear_damp")
+	var timestep := 0.02
+	var velocity := -cum_velocity * 1500
+	var line_start: Vector2 = meatball_pos
+	var line_end: Vector2 = Vector2.ZERO
+	var iters: int = 30
+	var min_line: int = iters + 1
+
+	for i: int in iters:
+		velocity.y += gravity * timestep
+		line_end = line_start + (velocity * timestep)
+		velocity = velocity * clampf(1.0 - drag * timestep, 0, 1)
+
+		if (
+			(meatball_pos - $SpawnMeatball.position).length() != 0
+			&& (
+				(
+					(meatball_pos - line_start).length()
+					> (meatball_pos - $SpawnMeatball.position).length()
+				)
+				|| i > min_line
+			)
+		):
+			var colour = Color(0.945, 0.306, 0.354, 1.0)
+			min_line = i
+			if i % 2 == 0:
+				colour.a = 1 - (float(i) / iters)
+			else:
+				colour.a = 0
+			draw_line(line_start, line_end, colour, 3)
+
+		line_start = line_end
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if dragging:
@@ -67,9 +104,7 @@ func _process(delta: float) -> void:
 		cum_velocity = cum_velocity.normalized() * clamp(cum_velocity.length(), 0, 1)
 		meatball.position = cum_velocity.normalized() * (1 - exp(-cum_velocity.length() * 3)) * 100
 
-		$Aiming.mesh.size = Vector2(cum_velocity.length() * 200, 5)
-		$Aiming.position = $SpawnMeatball.position - cum_velocity * 100
-		$Aiming.rotation = cum_velocity.angle()
+		queue_redraw()
 
 	$UI/MeatballCounter.text = "Count: " + str(counter)
 
@@ -82,3 +117,7 @@ func _process(delta: float) -> void:
 			$UI/Countdown.text = ""
 
 	# meatball.linear_velocity = -direction
+
+
+func _draw() -> void:
+	trajectory()
