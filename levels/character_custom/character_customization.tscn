@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://0idk7vrv04g2"]
+
+[ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="1_r1eka"]
+[ext_resource type="Shader" uid="uid://seb5tbfppw10" path="res://player/player2d.gdshader" id="2_e0cyl"]
+[ext_resource type="Texture2D" uid="uid://d34bacrgs55kh" path="res://player/animation/hair/hair_bob_atlas.png" id="3_h54wd"]
+[ext_resource type="Texture2D" uid="uid://cmane2ppdnbdt" path="res://player/animation/hair/bob/hair-bob-standing-1.png" id="4_jvt27"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r1eka"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hifyk"]
+sky_material = SubResource("ProceduralSkyMaterial_r1eka")
+
+[sub_resource type="Environment" id="Environment_g6k6d"]
+background_mode = 2
+sky = SubResource("Sky_hifyk")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hifyk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s51m2"]
+shader = ExtResource("2_e0cyl")
+shader_parameter/current_atlas = ExtResource("3_h54wd")
+shader_parameter/colors = PackedColorArray(0.43134022, 0.43134025, 0.43134025, 1, 0.8148221, 0.09260852, 0, 1, 0.29385898, 0.604017, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[node name="CharacterCustomization" type="Node3D" unique_id=372680123]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575200512]
+environment = SubResource("Environment_g6k6d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=739706204]
+transform = Transform3D(0.56640625, -0.35609317, -0.7432238, 0, 0.9018325, -0.43208575, 0.8241262, 0.24473608, 0.5108036, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1240684217]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=595267905]
+shape = SubResource("WorldBoundaryShape3D_hifyk")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1929652828]
+script = ExtResource("1_r1eka")
+metadata/_custom_type_script = "uid://tmhevtvj3bh8"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1286092168]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1634803751]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 272.0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/VBoxContainer" unique_id=1416876797]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Body" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/TabContainer" unique_id=529614725]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Types" type="HFlowContainer" parent="CanvasLayer/VBoxContainer/TabContainer/Body" unique_id=2143297072]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/TabContainer/Body/Types" unique_id=1920337595]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/TabContainer/Body/Types/Button" unique_id=21929628]
+material = SubResource("ShaderMaterial_s51m2")
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("4_jvt27")
+
+[node name="GridContainer2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/TabContainer/Body" unique_id=915901018]
+layout_mode = 2
+
+[node name="Label" type="FoldableContainer" parent="CanvasLayer/VBoxContainer/TabContainer/Body/GridContainer2" unique_id=1630635779]
+layout_mode = 2
+title = "Color"
+
+[node name="ColorPicker2" type="ColorPicker" parent="CanvasLayer/VBoxContainer/TabContainer/Body/GridContainer2/Label" unique_id=313269095]
+layout_mode = 2
+edit_alpha = false
+edit_intensity = false
+picker_shape = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false

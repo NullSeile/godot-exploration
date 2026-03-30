@@ -34,9 +34,17 @@ var eye_styles = {
 	EyeStyle.EYE7: preload("res://player/animation/eyes/eyes7_atlas.png"),
 }
 
+enum BottomStyle { PANTS, SHORTS, SKIRT }
+var bottom_styles = {
+	BottomStyle.PANTS: preload("res://player/animation/bottom/bottom_pants_atlas.png"),
+	BottomStyle.SHORTS: preload("res://player/animation/bottom/bottom_shorts_atlas.png"),
+	BottomStyle.SKIRT: preload("res://player/animation/bottom/bottom_skirt_atlas.png"),
+}
+
 @export var hair_style: HairStyle = HairStyle.BOB
 @export var head_style: HeadStyle = HeadStyle.HUMAN
 @export var eye_style: EyeStyle = EyeStyle.EYE1
+@export var bottom_style: BottomStyle = BottomStyle.PANTS
 
 @export var hair_color: Color = Color(0.569, 0.349, 0.796)
 @export var skin_color: Color = Color(1, 0.753, 0.949)
@@ -64,7 +72,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			current_interactable.interact()
 
 	if event.is_action_pressed("test2"):
-		get_tree().current_scene.launch_minigame()
+		get_tree().current_scene.change_world(
+			"res://levels/character_custom/character_customization.tscn", "SpawnPoint"
+		)
 
 
 func shaded(color: Color) -> Color:
@@ -88,6 +98,9 @@ func _process(delta: float) -> void:
 	$Body/Hair.material_override.set_shader_parameter("current_atlas", hair_styles[hair_style])
 	$Body/Head.material_override.set_shader_parameter("current_atlas", head_styles[head_style])
 	$Body/Eyes.material_override.set_shader_parameter("current_atlas", eye_styles[eye_style])
+	$Body/Bottom.material_override.set_shader_parameter(
+		"current_atlas", bottom_styles[bottom_style]
+	)
 
 	if head_style != HeadStyle.HUMAN:
 		$Body/Hair.hide()
@@ -154,7 +167,7 @@ func _process(delta: float) -> void:
 		)
 	)
 	(
-		$Body/Clothes
+		$Body/Shirt
 		. material_override
 		. set_shader_parameter(
 			"colors",
@@ -163,6 +176,15 @@ func _process(delta: float) -> void:
 				shaded(shirt_color),
 				shirt_color,
 				shaded(shirt_color),
+			]
+		)
+	)
+	(
+		$Body/Bottom
+		. material_override
+		. set_shader_parameter(
+			"colors",
+			[
 				pants_color,
 				shaded(pants_color),
 			]

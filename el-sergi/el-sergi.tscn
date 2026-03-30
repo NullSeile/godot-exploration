@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cxyo2dtpswkqw"]
+
+[ext_resource type="Texture2D" uid="uid://bd4vdsg4ggkgt" path="res://el-sergi/sprites/sergi-1.png" id="1_psyuv"]
+[ext_resource type="Texture2D" uid="uid://b1uilv0jg8ufr" path="res://el-sergi/sprites/sergi-2.png" id="2_ydi2u"]
+[ext_resource type="Texture2D" uid="uid://dhfvo3othyrsr" path="res://el-sergi/sprites/sergi-3.png" id="3_7mg3g"]
+[ext_resource type="Texture2D" uid="uid://c3ohmpod63sik" path="res://el-sergi/sprites/sergi-4.png" id="4_ksiw2"]
+[ext_resource type="Texture2D" uid="uid://uq5wuf6s7srx" path="res://el-sergi/sprites/sergi-2-blink.png" id="5_y21u1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gld5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_psyuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ydi2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7mg3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ksiw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_psyuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y21u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7mg3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ksiw2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="ElSergi" type="Node3D" unique_id=1349677157]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=757349110]
+centered = false
+offset = Vector2(-7.5, 0)
+pixel_size = 0.07
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_gld5d")
+autoplay = "default"

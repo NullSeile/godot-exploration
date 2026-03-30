@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cqmxnlov00xcs" path="res://ajan/ajan.tscn" id="2_gl88u"]
 [ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="3_ingi6"]
+[ext_resource type="PackedScene" uid="uid://cxyo2dtpswkqw" path="res://el-sergi/el-sergi.tscn" id="4_am23j"]
 [ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="4_ingi6"]
+[ext_resource type="PackedScene" uid="uid://dblmxh87e2rln" path="res://flower-alien/flower-alien.tscn" id="5_am23j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37kl0"]
 
@@ -97,7 +99,7 @@ size = Vector3(0.7583008, 1.5195313, 1)
 [node name="Overworld1" type="Node3D" unique_id=1344054813]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1814479773]
-transform = Transform3D(-0.4937216, -0.092451856, -0.8646916, -0.14266026, -0.9722508, 0.1854082, -0.85783833, 0.21489698, 0.46683213, 0, 1.9556696, 0)
+transform = Transform3D(-0.92795837, -0.13045664, -0.34910536, -0.01773462, -0.9202139, 0.39101398, -0.372262, 0.36903584, 0.8516065, 0, 1.9556696, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=118156382]
@@ -123,7 +125,7 @@ transform = Transform3D(0.6913046, -0.37571663, -0.6171993, -0.02458628, 0.84145
 mesh = SubResource("TorusMesh_37kl0")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1028721060]
-transform = Transform3D(0.8183504, 0.4205627, -0.39170098, 0, 0.68155146, 0.7317703, 0.5747196, -0.59884447, 0.5577479, 0.54359937, 2.297476, 0.50958943)
+transform = Transform3D(0.8183504, 0.4205627, -0.39170098, 0, 0.68155146, 0.7317703, 0.5747196, -0.59884447, 0.5577479, 3.089, 2.297, 0.51)
 light_energy = 4.0
 light_volumetric_fog_energy = 16.0
 shadow_enabled = true
@@ -176,3 +178,9 @@ metadata/_custom_type_script = "uid://tmhevtvj3bh8"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.889031, 0, 0)
 script = ExtResource("4_ingi6")
 metadata/_custom_type_script = "uid://tmhevtvj3bh8"
+
+[node name="ElSergi" parent="." unique_id=1349677157 instance=ExtResource("4_am23j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4993267, 0, -0.58010626)
+
+[node name="FlowerAlien" parent="." unique_id=1240043366 instance=ExtResource("5_am23j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6556783, 0, -0.5673897)

@@ -56,19 +56,20 @@
 [ext_resource type="Texture2D" uid="uid://56tlaoslmgs" path="res://player/animation/eyes/eyes1/eyes1-walking-7.png" id="49_a1u5o"]
 [ext_resource type="Texture2D" uid="uid://bh1muk8ocrwy8" path="res://player/animation/eyes/eyes1/eyes1-walking-8.png" id="50_3dxkp"]
 [ext_resource type="Texture2D" uid="uid://xftywro2nm6s" path="res://player/animation/eyes/eyes1/eyes1-walking-4-blink.png" id="51_6wior"]
-[ext_resource type="Texture2D" uid="uid://i7g7c1r24ogu" path="res://player/animation/clothes/clothes-standing-1.png" id="52_35wys"]
-[ext_resource type="Texture2D" uid="uid://csx2wdvei1sgt" path="res://player/animation/clothes/clothes-standing-2.png" id="53_pjwc4"]
-[ext_resource type="Texture2D" uid="uid://dee7f7bpi25pd" path="res://player/animation/clothes/clothes-standing-3.png" id="54_or4qq"]
-[ext_resource type="Texture2D" uid="uid://de5jmseyslp5x" path="res://player/animation/clothes/clothes-standing-4.png" id="55_hggc2"]
-[ext_resource type="Texture2D" uid="uid://dbgs4x3prpcnk" path="res://player/animation/clothes/clothes-walking-1.png" id="56_b2j0d"]
-[ext_resource type="Texture2D" uid="uid://bscurg63lot2y" path="res://player/animation/clothes/clothes-walking-2.png" id="57_7l6ig"]
-[ext_resource type="Texture2D" uid="uid://703bdfaql4sl" path="res://player/animation/clothes_atlas.png" id="57_kewli"]
-[ext_resource type="Texture2D" uid="uid://dpv1feu5jreyb" path="res://player/animation/clothes/clothes-walking-3.png" id="58_j3r50"]
-[ext_resource type="Texture2D" uid="uid://byd31aga7e6ag" path="res://player/animation/clothes/clothes-walking-4.png" id="59_utr5e"]
-[ext_resource type="Texture2D" uid="uid://d4hv6501oylxc" path="res://player/animation/clothes/clothes-walking-5.png" id="60_kewli"]
-[ext_resource type="Texture2D" uid="uid://1pp1loda2u6o" path="res://player/animation/clothes/clothes-walking-6.png" id="61_do7qw"]
-[ext_resource type="Texture2D" uid="uid://dngeha2ioydci" path="res://player/animation/clothes/clothes-walking-7.png" id="62_2h6tc"]
-[ext_resource type="Texture2D" uid="uid://cmmyhhln8tfyt" path="res://player/animation/clothes/clothes-walking-8.png" id="63_8rogd"]
+[ext_resource type="Texture2D" uid="uid://mtexvi2un0yb" path="res://player/animation/shirt_atlas.png" id="57_7l6ig"]
+[ext_resource type="Texture2D" uid="uid://c2shloxhu2k4q" path="res://player/animation/bottom/pants/pants-standing-1.png" id="58_j3r50"]
+[ext_resource type="Texture2D" uid="uid://00j1e2u6l68h" path="res://player/animation/bottom/pants/pants-standing-2.png" id="59_utr5e"]
+[ext_resource type="Texture2D" uid="uid://b4xgrgcspipab" path="res://player/animation/bottom/pants/pants-standing-3.png" id="60_kewli"]
+[ext_resource type="Texture2D" uid="uid://uy3b7ncl1ku3" path="res://player/animation/bottom/pants/pants-standing-4.png" id="61_do7qw"]
+[ext_resource type="Texture2D" uid="uid://b8fc4k3eik3qd" path="res://player/animation/bottom/pants/pants-walking-1.png" id="62_2h6tc"]
+[ext_resource type="Texture2D" uid="uid://dd7rjhjwq187f" path="res://player/animation/bottom/pants/pants-walking-2.png" id="63_8rogd"]
+[ext_resource type="Texture2D" uid="uid://b2aiyb6iaoul7" path="res://player/animation/bottom/pants/pants-walking-3.png" id="64_48p26"]
+[ext_resource type="Texture2D" uid="uid://dlisen4lt4moa" path="res://player/animation/bottom/pants/pants-walking-4.png" id="65_anp34"]
+[ext_resource type="Texture2D" uid="uid://c26vnxertprcr" path="res://player/animation/bottom/pants/pants-walking-5.png" id="66_jdjat"]
+[ext_resource type="Texture2D" uid="uid://cq3qh7q7agd0j" path="res://player/animation/bottom/pants/pants-walking-6.png" id="67_j420s"]
+[ext_resource type="Texture2D" uid="uid://l85i1wienltt" path="res://player/animation/bottom/pants/pants-walking-7.png" id="68_kcq4v"]
+[ext_resource type="Texture2D" uid="uid://b6rebmfkmtdaj" path="res://player/animation/bottom/pants/pants-walking-8.png" id="69_qavcc"]
+[ext_resource type="Texture2D" uid="uid://couww0wn1eudk" path="res://player/animation/bottom/bottom_pants_atlas.png" id="70_j3r50"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkbax"]
 size = Vector3(0.75, 1.5, 0.75)
@@ -332,35 +333,12 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7l6ig"]
 render_priority = 1
 shader = ExtResource("2_s3g0c")
-shader_parameter/current_atlas = ExtResource("57_kewli")
-shader_parameter/colors = PackedColorArray(0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1, 0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1, 0.57254905, 0.34901962, 0.8, 1, 0.57254905, 0.24705882, 0.7647059, 1)
+shader_parameter/current_atlas = ExtResource("57_7l6ig")
+shader_parameter/colors = PackedColorArray(0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1, 0.8352941, 0.53333336, 0.8784314, 1, 0.7921569, 0.42745098, 0.8509804, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjvpn"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("52_35wys")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53_pjwc4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("54_or4qq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55_hggc2")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("56_b2j0d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("57_7l6ig")
-}, {
 "duration": 1.0,
 "texture": ExtResource("58_j3r50")
 }, {
@@ -372,17 +350,46 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("61_do7qw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("62_2h6tc")
 }, {
 "duration": 1.0,
 "texture": ExtResource("63_8rogd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_48p26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_anp34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_jdjat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_j420s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_kcq4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_qavcc")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utr5e"]
+render_priority = 0
+shader = ExtResource("2_s3g0c")
+shader_parameter/current_atlas = ExtResource("70_j3r50")
+shader_parameter/colors = PackedColorArray(0.57254905, 0.34901962, 0.8, 1, 0.57254905, 0.24705882, 0.7647059, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=623117812 groups=["player"]]
 script = ExtResource("1_4flbx")
@@ -450,8 +457,22 @@ sprite_frames = SubResource("SpriteFrames_65viv")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Clothes" type="AnimatedSprite3D" parent="Body" unique_id=1224151303]
+[node name="Shirt" type="AnimatedSprite3D" parent="Body" unique_id=702384489]
 material_override = SubResource("ShaderMaterial_7l6ig")
+cast_shadow = 2
+centered = false
+offset = Vector2(-12.5, 0)
+pixel_size = 0.07
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+render_priority = 1
+sprite_frames = SubResource("SpriteFrames_bjvpn")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Bottom" type="AnimatedSprite3D" parent="Body" unique_id=502312560]
+material_override = SubResource("ShaderMaterial_utr5e")
 cast_shadow = 2
 centered = false
 offset = Vector2(-12.5, 0)
