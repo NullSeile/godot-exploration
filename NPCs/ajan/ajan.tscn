@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqmxnlov00xcs"]
 
 [ext_resource type="Texture2D" uid="uid://bdi0r8o866jjy" path="res://NPCs/ajan/sprites/1.png" id="1_1dmy4"]
-[ext_resource type="Script" uid="uid://7bp4mqt58g6t" path="res://NPCs/ajan/ajan.gd" id="1_c2t2k"]
+[ext_resource type="Script" uid="uid://bux1ctkumoxif" path="res://NPCs/looking_straight.gd" id="1_q0fv6"]
 [ext_resource type="Texture2D" uid="uid://chx0o8120ore7" path="res://NPCs/ajan/sprites/2.png" id="2_c2t2k"]
 [ext_resource type="Texture2D" uid="uid://d3p2o8f1fwqja" path="res://NPCs/ajan/sprites/3.png" id="3_lixql"]
 [ext_resource type="Texture2D" uid="uid://scuky3ke1e6t" path="res://NPCs/ajan/sprites/4.png" id="4_6j4gy"]
@@ -86,8 +86,10 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_jx4bc"]
 size = Vector3(3, 2, 3)
 
-[node name="Ajan" type="Node3D" unique_id=541447099]
-script = ExtResource("1_c2t2k")
+[node name="Ajan" type="Node3D" unique_id=541447099 node_paths=PackedStringArray("interact_area", "sprites")]
+script = ExtResource("1_q0fv6")
+interact_area = NodePath("InteractArea")
+sprites = NodePath("AnimatedSprite3D")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1613965825]
 centered = false
