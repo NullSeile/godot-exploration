@@ -32,15 +32,20 @@ func _process(delta: float) -> void:
 
 	var target_dir = Vector3(0, 0, 0)
 
-	if player.global_position.x > global_position.x:
-		target_dir.y = TAU + look_at.rotation.y
+	if can_interact:
+		if player.global_position.x > global_position.x:
+			target_dir.y = TAU + look_at.rotation.y
+		else:
+			target_dir.y = look_at.rotation.y
+
+		target_dir.y = (target_dir.y + PI) / 2
+
+		if player.global_position.x < global_position.x:
+			target_dir.y -= (PI)
+
 	else:
-		target_dir.y = look_at.rotation.y
-
-	target_dir.y = (target_dir.y + PI) / 2
-
-	if player.global_position.x < global_position.x:
-		target_dir.y -= (PI)
+		if player.global_position.x > global_position.x:
+			target_dir.y += (PI)
 
 	delta *= 5
 
