@@ -75,10 +75,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().current_scene.change_world(
 			"res://levels/character_custom/character_customization.tscn", "SpawnPoint"
 		)
+		# get_tree().current_scene.launch_minigame()
 
 
 func shaded(color: Color) -> Color:
-	color.ok_hsl_l -= 0.06
+	color.ok_hsl_l = max(0, color.ok_hsl_l - 0.06)
 	color.ok_hsl_s += 0.01
 	return color
 
@@ -144,8 +145,7 @@ func _process(delta: float) -> void:
 		)
 	)
 	var blush_color = skin_color
-	blush_color.ok_hsl_l -= 0.05
-	blush_color.ok_hsl_s += 0.00
+	blush_color.ok_hsl_l = max(0, blush_color.ok_hsl_l - 0.05)
 
 	if blush_color.ok_hsl_h > 0.5:
 		blush_color.ok_hsl_h += 0.02
