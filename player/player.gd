@@ -17,10 +17,11 @@ var hair_styles = {
 	HairStyle.TOUPE: preload("res://player/animation/hair/hair_toupe_atlas.png"),
 }
 
-enum HeadStyle { HUMAN, CANINE }
+enum HeadStyle { HUMAN, CANINE, FELINE }
 var head_styles = {
 	HeadStyle.HUMAN: preload("res://player/animation/head/head_human_atlas.png"),
 	HeadStyle.CANINE: preload("res://player/animation/head/head_canine_atlas.png"),
+	HeadStyle.FELINE: preload("res://player/animation/head/head_feline_atlas.png"),
 }
 
 enum EyeStyle { EYE1, EYE2, EYE3, EYE4, EYE5, EYE6, EYE7 }

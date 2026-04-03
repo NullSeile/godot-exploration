@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
-@onready var tab_container = $UI/VBoxContainer/TabContainer
+@onready var tab_container: TabContainer = $UI/VBoxContainer/TabContainer
 
 @onready var example_button = %ExampleButton
 @onready var example_param = %ExampleParam
@@ -63,8 +63,6 @@ func create_tab(title: String, params: Array[Control], styles: Array) -> Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# var button = %ExampleButton.duplicate()
-	# %ExampleButton.queue_free()
 	%ButtonsContainer.remove_child(example_button)
 	%ParamContainer.remove_child(example_param)
 
@@ -141,7 +139,10 @@ func _ready() -> void:
 			var button = create_button(
 				player.head_styles[style],
 				Rect2(8, 5, 16, 16),
-				func(): player.head_style = style,
+				func():
+					player.head_style = style
+					var hair_idx = tab_container.get_tab_idx_from_control(hair_tab)
+					tab_container.set_tab_disabled(hair_idx, style == player.HeadStyle.CANINE)
 			)
 			head_previews.append(button.get_child(1))
 			return button
