@@ -23,7 +23,6 @@ func _ready() -> void:
 		dup.global_position.x = 2 * self.global_position.x - node.global_position.x
 		dup.global_rotation.y *= -1
 		dup.global_rotation.z *= -1
-		# dup.rotation.y += PI
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +34,10 @@ func _process(_delta: float) -> void:
 	body_dup.global_rotation = player_body.global_rotation
 	body_dup.rotation.y = -body_dup.rotation.y + PI
 
-	for part in body_dup.get_children():
-		var p: AnimatedSprite3D = part as AnimatedSprite3D
-		p.play(player_body.get_child(0).animation)
-		p.frame = player_body.get_child(0).frame
+	var children = body_dup.get_children()
+	for i in range(len(children)):
+		var original: AnimatedSprite3D = player_body.get_child(i)
+		var p: AnimatedSprite3D = children[i]
+		p.play(original.animation)
+		p.frame = original.frame
+		p.visible = original.visible

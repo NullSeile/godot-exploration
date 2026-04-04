@@ -25,10 +25,10 @@ func _ready() -> void:
 	area.body_entered.connect(
 		func(body: Node):
 			if body.is_in_group("player"):
-				player.set_interactable.emit(self)
+				player.set_interactable(self)
 	)
 	area.body_exited.connect(
 		func(body: Node):
 			if body.is_in_group("player"):
-				player.set_interactable.emit(null)
+				player.set_interactable(null)
 	)

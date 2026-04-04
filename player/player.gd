@@ -7,7 +7,6 @@ const JUMP_VELOCITY = 4.5
 var desired_angle: float = 0
 var on_dialogue: bool = false
 
-signal set_interactable(node: Node)
 var current_interactable = null
 
 enum HairStyle { BOB, SHORT, TOUPE }
@@ -57,11 +56,16 @@ var bottom_styles = {
 
 @onready var main_scene: MainScene = get_tree().current_scene
 
+@onready var camera_host: PhantomCameraHost = $Camera3D/PhantomCameraHost
+
+
+func set_interactable(node: Node) -> void:
+	current_interactable = node
+
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(func(_a): on_dialogue = true)
 	DialogueManager.dialogue_ended.connect(func(_a): on_dialogue = false)
-	set_interactable.connect(func(body): current_interactable = body)
 	$UI/interact.hide()
 
 

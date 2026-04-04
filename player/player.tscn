@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4jccvu5j6uy6"]
 
 [ext_resource type="Script" uid="uid://c7ofvd0ixk0uk" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_do7qw"]
 [ext_resource type="Texture2D" uid="uid://cqagt4a6jp2u" path="res://player/animation/body/body-standing-1.png" id="2_kb6p2"]
 [ext_resource type="Shader" uid="uid://cec5aj4oppuc1" path="res://player/player.gdshader" id="2_s3g0c"]
 [ext_resource type="Texture2D" uid="uid://dhsnexd35cluq" path="res://player/animation/body_atlas.png" id="3_7l6ig"]
@@ -70,9 +71,16 @@
 [ext_resource type="Texture2D" uid="uid://l85i1wienltt" path="res://player/animation/bottom/pants/pants-walking-7.png" id="68_kcq4v"]
 [ext_resource type="Texture2D" uid="uid://b6rebmfkmtdaj" path="res://player/animation/bottom/pants/pants-walking-8.png" id="69_qavcc"]
 [ext_resource type="Texture2D" uid="uid://couww0wn1eudk" path="res://player/animation/bottom/bottom_pants_atlas.png" id="70_j3r50"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="71_kewli"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="72_do7qw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkbax"]
 size = Vector3(0.75, 1.5, 0.75)
+
+[sub_resource type="Resource" id="Resource_2h6tc"]
+script = ExtResource("72_do7qw")
+duration = 0.5
+transition = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pjwc4"]
 render_priority = 0
@@ -398,8 +406,31 @@ script = ExtResource("1_4flbx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_rkbax")
 
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1746495270 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(1, 0, 0, 0, 0.96906316, 0.24681297, 0, -0.24681297, 0.96906316, 0, 1.505, 2.245)
+top_level = true
+script = ExtResource("71_kewli")
+priority = 1
+follow_mode = 2
+follow_target = NodePath("..")
+look_at_target = NodePath("../Body/Head")
+tween_resource = SubResource("Resource_2h6tc")
+tween_on_load = false
+follow_offset = Vector3(0, 1.505, 2.245)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=939351616]
-transform = Transform3D(1, 0, 0, 0, 0.96481943, 0.26291335, 0, -0.26291335, 0.96481943, 0, 1.3875809, 2.4993165)
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.96906316, 0.24681297, 0, -0.24681297, 0.96906316, 0, 1.505, 2.245)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=241045461]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_do7qw")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Body" type="Node3D" parent="." unique_id=1434276511]
 

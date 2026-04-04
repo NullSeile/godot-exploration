@@ -1,13 +1,16 @@
-extends Node3D
+extends CanvasLayer
+class_name CharacterCustomization
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
-@onready var main_scene: MainScene = get_tree().current_scene
 
-@onready var tab_container: TabContainer = $UI/VBoxContainer/TabContainer
+@onready var tab_container: TabContainer = $VBoxContainer/TabContainer
 
 @onready var example_button = %ExampleButton
 @onready var example_param = %ExampleParam
 @onready var example_tab = %ExampleTab
+
+signal cancel_pressed
+signal accept_pressed
 
 var eye_previews: Array[TextureRect]
 var hair_previews: Array[TextureRect]
@@ -237,10 +240,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_cancel_pressed() -> void:
-	main_scene.load_appearance()
-	main_scene.load_game()
+	cancel_pressed.emit()
 
 
 func _on_accept_pressed() -> void:
-	main_scene.save_appearance()
-	main_scene.load_game()
+	accept_pressed.emit()

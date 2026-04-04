@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://kaio5angqlga"]
+
+[ext_resource type="Script" uid="uid://dviyerclea8rr" path="res://utils/character_customization.gd" id="1_3tbgh"]
+[ext_resource type="Shader" uid="uid://seb5tbfppw10" path="res://player/player2d.gdshader" id="2_au8gx"]
+[ext_resource type="Texture2D" uid="uid://cpdyrciayip6o" path="res://player/animation/eyes/eyes2_atlas.png" id="3_7avc1"]
+[ext_resource type="Texture2D" uid="uid://couww0wn1eudk" path="res://player/animation/bottom/bottom_pants_atlas.png" id="4_ewxoj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s51m2"]
+shader = ExtResource("2_au8gx")
+shader_parameter/current_atlas = ExtResource("3_7avc1")
+shader_parameter/colors = PackedColorArray(1, 1, 1, 1, 0.94521445, 0.11630229, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s51m2"]
+atlas = ExtResource("4_ewxoj")
+region = Rect2(12, 16, 9, 9)
+
+[sub_resource type="Theme" id="Theme_h54wd"]
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+
+[node name="UI" type="CanvasLayer" unique_id=1984337192]
+script = ExtResource("1_3tbgh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=286738494]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -358.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=28313746]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+clip_tabs = false
+
+[node name="ExampleTab" type="ScrollContainer" parent="VBoxContainer/TabContainer" unique_id=1415935319]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/TabContainer/ExampleTab" unique_id=1085224037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonsContainer" type="HFlowContainer" parent="VBoxContainer/TabContainer/ExampleTab/VBox" unique_id=184987172]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExampleButton" type="MarginContainer" parent="VBoxContainer/TabContainer/ExampleTab/VBox/ButtonsContainer" unique_id=300359968]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/ExampleTab/VBox/ButtonsContainer/ExampleButton" unique_id=505405820]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="VBoxContainer/TabContainer/ExampleTab/VBox/ButtonsContainer/ExampleButton" unique_id=29661323]
+material = SubResource("ShaderMaterial_s51m2")
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_s51m2")
+
+[node name="ParamContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/ExampleTab/VBox" unique_id=2131190280]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ExampleParam" type="FoldableContainer" parent="VBoxContainer/TabContainer/ExampleTab/VBox/ParamContainer" unique_id=849089175]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Color"
+
+[node name="ColorPicker" type="ColorPicker" parent="VBoxContainer/TabContainer/ExampleTab/VBox/ParamContainer/ExampleParam" unique_id=973555021]
+layout_mode = 2
+edit_alpha = false
+edit_intensity = false
+picker_shape = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=908224237]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -46.0
+offset_right = 139.0
+grow_vertical = 0
+theme = SubResource("Theme_h54wd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1361567536]
+layout_mode = 2
+
+[node name="Cancel" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1338232387]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Accept" type="Button" parent="MarginContainer/HBoxContainer" unique_id=237181425]
+layout_mode = 2
+text = "Accept"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
