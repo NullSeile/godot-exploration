@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
+@onready var main_scene: MainScene = get_tree().current_scene
 
 @onready var tab_container: TabContainer = $UI/VBoxContainer/TabContainer
 
@@ -233,3 +234,13 @@ func _process(_delta: float) -> void:
 	)
 	for prev in shirt_previews:
 		prev.material.set_shader_parameter("colors", shirt_colors)
+
+
+func _on_cancel_pressed() -> void:
+	main_scene.load_appearance()
+	main_scene.load_game()
+
+
+func _on_accept_pressed() -> void:
+	main_scene.save_appearance()
+	main_scene.load_game()

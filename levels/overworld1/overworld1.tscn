@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="3_ingi6"]
 [ext_resource type="PackedScene" uid="uid://cxyo2dtpswkqw" path="res://NPCs/el-sergi/el-sergi.tscn" id="4_am23j"]
 [ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="4_ingi6"]
-[ext_resource type="PackedScene" uid="uid://dblmxh87e2rln" path="res://NPCs/flower-alien/flower-alien.tscn" id="5_am23j"]
+[ext_resource type="PackedScene" uid="uid://cp400qlojde4g" path="res://NPCs/flower-alien/flower-alien.tscn" id="5_am23j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37kl0"]
 
@@ -169,13 +169,13 @@ shape = SubResource("BoxShape3D_gl88u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12084961, -0.25976563, 0)
 shape = SubResource("BoxShape3D_w3niv")
 
-[node name="Spawn" type="Node3D" parent="." unique_id=1223654860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4948967, 0.8572193, 0)
+[node name="Spawn" type="Marker3D" parent="." unique_id=808921582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.105248, 0, 0)
 script = ExtResource("4_ingi6")
 metadata/_custom_type_script = "uid://tmhevtvj3bh8"
 
-[node name="SpawnRight" type="Node3D" parent="." unique_id=363686304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.889031, 0, 0)
+[node name="SpawnRight" type="Marker3D" parent="." unique_id=1957806966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.381479, 0, 0)
 script = ExtResource("4_ingi6")
 metadata/_custom_type_script = "uid://tmhevtvj3bh8"
 

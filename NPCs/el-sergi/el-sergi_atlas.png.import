@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh15ha6f4tyw"
-path.s3tc="res://.godot/imported/el-sergi_atlas.png-a92c75c38c9e24cf3b0acf79d587c665.s3tc.ctex"
+path="res://.godot/imported/el-sergi_atlas.png-a92c75c38c9e24cf3b0acf79d587c665.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://NPCs/el-sergi/el-sergi_atlas.png"
-dest_files=["res://.godot/imported/el-sergi_atlas.png-a92c75c38c9e24cf3b0acf79d587c665.s3tc.ctex"]
+dest_files=["res://.godot/imported/el-sergi_atlas.png-a92c75c38c9e24cf3b0acf79d587c665.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

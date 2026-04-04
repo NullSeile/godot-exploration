@@ -55,15 +55,13 @@ var bottom_styles = {
 @export var pants_color: Color = Color(0.573, 0.349, 0.8)
 @export var snout_color: Color = Color(0.784, 0.435, 0.71)
 
+@onready var main_scene: MainScene = get_tree().current_scene
+
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(func(_a): on_dialogue = true)
 	DialogueManager.dialogue_ended.connect(func(_a): on_dialogue = false)
-	set_interactable.connect(
-		func(body):
-			current_interactable = body
-			$UI/interact.visible = true if body else false
-	)
+	set_interactable.connect(func(body): current_interactable = body)
 	$UI/interact.hide()
 
 
@@ -72,11 +70,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_interactable:
 			current_interactable.interact()
 
+	if event.is_action_pressed("test1"):
+		main_scene.save_game()
+
 	if event.is_action_pressed("test2"):
-		get_tree().current_scene.change_world(
+		main_scene.save_game()
+		main_scene.change_world(
 			"res://levels/character_custom/character_customization.tscn", "SpawnPoint"
 		)
-		# get_tree().current_scene.launch_minigame()
+
+	if event.is_action_pressed("test3"):
+		main_scene.load_game()
 
 
 func shaded(color: Color) -> Color:
@@ -92,6 +96,8 @@ func blend(color: Color, other: Color, alpha: float) -> Color:
 
 
 func _process(delta: float) -> void:
+	$UI/interact.visible = true if current_interactable and not on_dialogue else false
+
 	if velocity.x > 0:
 		desired_angle = 0
 	elif velocity.x < 0:

@@ -7,12 +7,12 @@ var can_interact: bool = false
 @export var sprites: AnimatedSprite3D
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
-var look_at: Node3D
+var dummy: Node3D
 
 
 func _ready() -> void:
-	look_at = Node3D.new()
-	self.add_child(look_at)
+	dummy = Node3D.new()
+	self.add_child(dummy)
 
 	interact_area.body_entered.connect(
 		func(body: Node):
@@ -28,11 +28,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	look_at.look_at(player.global_position)
+	dummy.look_at(player.global_position)
 
 	var target_dir = Vector3(0, PI, 0)
 	if can_interact:
-		target_dir = look_at.rotation
+		target_dir = dummy.rotation
 
 	delta *= 10
 

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://0idk7vrv04g2"]
 
 [ext_resource type="Script" uid="uid://dviyerclea8rr" path="res://levels/character_custom/character_customization.gd" id="1_jvt27"]
-[ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="1_r1eka"]
 [ext_resource type="Shader" uid="uid://seb5tbfppw10" path="res://player/player2d.gdshader" id="2_e0cyl"]
 [ext_resource type="Texture2D" uid="uid://cpdyrciayip6o" path="res://player/animation/eyes/eyes2_atlas.png" id="5_jvt27"]
 [ext_resource type="Texture2D" uid="uid://couww0wn1eudk" path="res://player/animation/bottom/bottom_pants_atlas.png" id="6_jvt27"]
@@ -32,6 +31,10 @@ shader_parameter/colors = PackedColorArray(1, 1, 1, 1, 0.94521445, 0.11630229, 0
 atlas = ExtResource("6_jvt27")
 region = Rect2(12, 16, 9, 9)
 
+[sub_resource type="Theme" id="Theme_h54wd"]
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_right = 15
+
 [node name="CharacterCustomization" type="Node3D" unique_id=372680123]
 script = ExtResource("1_jvt27")
 
@@ -47,9 +50,7 @@ shadow_enabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=595267905]
 shape = SubResource("WorldBoundaryShape3D_hifyk")
 
-[node name="SpawnPoint" type="Node3D" parent="." unique_id=1929652828]
-script = ExtResource("1_r1eka")
-metadata/_custom_type_script = "uid://tmhevtvj3bh8"
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=1064306689]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1286092168]
 
@@ -112,3 +113,29 @@ sampler_visible = false
 color_modes_visible = false
 sliders_visible = false
 presets_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1986344539]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_h54wd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" unique_id=127552565]
+layout_mode = 2
+
+[node name="Cancel" type="Button" parent="UI/MarginContainer/HBoxContainer" unique_id=950831095]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Accept" type="Button" parent="UI/MarginContainer/HBoxContainer" unique_id=536917656]
+layout_mode = 2
+text = "Accept"
+
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
