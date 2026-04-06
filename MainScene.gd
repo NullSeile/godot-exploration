@@ -4,7 +4,11 @@ class_name MainScene
 var current_world_path = null
 var current_world = null
 
+var current_minigame: Node = null
+
 @onready var player: Player = $World/Player
+
+var intro_done: bool = false
 
 
 func save_appearance() -> void:
@@ -56,6 +60,7 @@ func save_game() -> void:
 			"y": player.position.y,
 			"z": player.position.z,
 		},
+		"intro_done": intro_done,
 	}
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	file.store_line(JSON.stringify(save_data))
@@ -68,7 +73,9 @@ func load_game() -> void:
 
 	var save_file = FileAccess.open("user://savegame.json", FileAccess.READ)
 	var json_str = save_file.get_line()
-	var data = JSON.parse_string(json_str)
+	var data: Dictionary = JSON.parse_string(json_str)
+
+	intro_done = data["intro_done"]
 
 	change_world(data["current_world"], null)
 	player.position.x = data["player_position"]["x"]
@@ -76,10 +83,14 @@ func load_game() -> void:
 	player.position.z = data["player_position"]["z"]
 
 
-func _minigame_finished() -> void:
+func minigame_finished() -> void:
 	$World.visible = true
 	$World/Player/Camera3D.make_current()
 	$World.process_mode = Node.PROCESS_MODE_ALWAYS
+	%Minigame.remove_child(current_minigame)
+	current_minigame.queue_free()
+	current_minigame = null
+	$MinigameUI.hide()
 
 
 func change_world(scene: String, spawn):
@@ -95,22 +106,25 @@ func change_world(scene: String, spawn):
 
 
 func launch_minigame() -> void:
-	var scene = load("res://minigames/test1/minigame.tscn").instantiate()
+	current_minigame = load("res://minigames/test1/minigame.tscn").instantiate()
+
 	$World.hide()
 	$World.process_mode = Node.PROCESS_MODE_DISABLED
-	scene.finished.connect(_minigame_finished)
 
-	$Minigame.add_child(scene)
+	%Minigame.add_child(current_minigame)
+	$MinigameUI.show()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MinigameUI.hide()
 	load_appearance()
-	change_world("res://levels/overworld1/overworld1.tscn", "Spawn")
+	load_game()
+	# change_world(&"res://levels/interior1/interior1.tscn", &"IntroSpawn")
 	# current_world = load("res://levels/overworld1/overworld1.tscn").instantiate()
 	# $World.add_child(current_world)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

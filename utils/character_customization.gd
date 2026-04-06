@@ -9,6 +9,8 @@ class_name CharacterCustomization
 @onready var example_param = %ExampleParam
 @onready var example_tab = %ExampleTab
 
+@export var show_cancel: bool = true
+
 signal cancel_pressed
 signal accept_pressed
 
@@ -69,6 +71,9 @@ func create_tab(title: String, params: Array[Control], styles: Array) -> Control
 func _ready() -> void:
 	%ButtonsContainer.remove_child(example_button)
 	%ParamContainer.remove_child(example_param)
+
+	if not show_cancel:
+		%Cancel.hide()
 
 	tab_container.remove_child(example_tab)
 

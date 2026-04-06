@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://duw1waqycqrkb" path="res://levels/interior1/interior_1.gd" id="1_6xk2y"]
 [ext_resource type="Script" uid="uid://dmatuk8umiurg" path="res://utils/transition.gd" id="2_6xk2y"]
 [ext_resource type="Script" uid="uid://tmhevtvj3bh8" path="res://utils/spawn.gd" id="2_xcfsu"]
-[ext_resource type="Script" uid="uid://bgiywc8b2bscd" path="res://utils/mirror.gd" id="3_6xk2y"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="5_uucl3"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_ftxn7"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="7_ftxn7"]
+[ext_resource type="PackedScene" uid="uid://delu2qjrw6teu" path="res://addons/Mirror3D/Mirror3D.tscn" id="8_i0q3p"]
+[ext_resource type="Shader" uid="uid://dlj7tpk1qcv1u" path="res://levels/interior1/blink.gdshader" id="9_f0tib"]
+[ext_resource type="PackedScene" uid="uid://b6671l2ppdika" path="res://levels/interior1/low_poly_bed_4.glb" id="10_x5y2x"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ijnv6"]
 
@@ -26,6 +29,238 @@ size = Vector3(0.7437134, 1, 1)
 script = ExtResource("6_ftxn7")
 duration = 0.5
 transition = 1
+
+[sub_resource type="Resource" id="Resource_f0tib"]
+script = ExtResource("7_ftxn7")
+size = 0.187
+near = 0.1
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="BoxMesh" id="BoxMesh_b1ism"]
+size = Vector3(1.05, 0.1, 0.145)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5y2x"]
+size = Vector3(0.1, 1.27, 0.145)
+
+[sub_resource type="Resource" id="Resource_x5y2x"]
+script = ExtResource("6_ftxn7")
+
+[sub_resource type="Resource" id="Resource_o6syv"]
+script = ExtResource("7_ftxn7")
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x5y2x"]
+shader = ExtResource("9_f0tib")
+shader_parameter/open_amount = 0.9965243
+shader_parameter/edge_blur_amount = 0.2999999932944
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_rb3u3"]
+script = ExtResource("7_ftxn7")
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
+
+[sub_resource type="Environment" id="Environment_f0tib"]
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_b1ism"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:glow_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.3, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroCamera:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.383, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroCamera:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.883, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroCamera:position:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("IntroCamera:rotation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("IntroCamera:rotation:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.138102, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("IntroCamera:rotation:z")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_x5y2x"]
+resource_name = "new_animation"
+length = 13.325
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink/BlinkRect:material:shader_parameter/open_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3, 3, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.433, 0, 0.4485909, -0.237, 0, 0.237, 0, 0, -0.201, 0, 0.201, 0, 0.2645834, -0.233, 0, 0.233, 0, -0.0052942154, -0.2, 0, 0, 0, -0.0052942154, 0, 0, 0.29999995, -0.004089055, 0.9965243, -0.43333316, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.96666664, 1.5666667, 2.2, 2.7333333, 3.2333333, 4.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:glow_bloom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.6222223, 0, 0, 0, 0, -1.5000005, -0.03365714, 0, 0),
+"times": PackedFloat32Array(3.3333333, 6.6333337)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:glow_intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(4.3, -0.25, 0, 0.25, 0, 0.3, -1.3000002, 0.24099308, 0, 0),
+"times": PackedFloat32Array(3.766667, 6.6333337)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroCamera:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.8665294, -0.4166665, 0, 0.4166665, 0, 0, -0.4166665, 0, 0.4166665, 0, 0, -0.09166694, 0, 0.09166694, 0, -0.43633232, -0.14999986, 0.10908307, 0.14999986, -0.10908307, -0.43633232, -0.2166667, 0, 0.2166667, 0, -0.237, -0.07500005, -0.09599311, 0.07500005, 0.09599311, -0.237, -0.10000014, 0, 0.10000014, 0, -0.1, -0.1583333, -0.05925, 0.1583333, 0.05925),
+"times": PackedFloat32Array(5.8333335, 7.4999995, 7.8666677, 8.466666, 10.633333, 11.566667, 12.366667, 13.266666)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroCamera:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(3.1355276, -0.4166665, 0, 0.4166665, 0, 3.138102, -0.4166665, 0, 0.4166665, 0, 3.138102, -0.09166694, 0, 0.09166694, 0, 2.4469516, -0.14999986, 0.17278762, 0.14999986, -0.17278762, 2.4469516, -0.2166667, 0, 0.2166667, 0, 1.5707964, -0.07500005, 0.21903883, 0.07500005, -0.21903883, 1.5707964, -0.10000014, 0, 0.10000014, 0, 1.5707964, -0.1583333, 0, 0.1583333, 0),
+"times": PackedFloat32Array(5.8333335, 7.4999995, 7.8666677, 8.466666, 10.633333, 11.566667, 12.366667, 13.266666)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("IntroCamera:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.0046220557, -0.4166665, 0, 0.4166665, 0, 0, -0.4166665, 0, 0.4166665, 0),
+"times": PackedFloat32Array(5.8333335, 7.4999995)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("IntroCamera:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 3, 0, 0),
+"points": PackedFloat32Array(3.3834515, -0.4166665, 0, 0.4166665, 0, 3.383, -0.31666684, 0, 0.31666684, 0, 3.2377481, -0.07500005, 0.036312938, 0.07500005, -0.036312938, 3.2377481, -0.0666666, 0, 0.0666666, 0, 2.8545702, -0.07500005, 0.083433926, 0.07500005, -0.083433926, 2.9040124, -0.10000014, 0, 0.7226591, -0.034266472, 2.2, -0.1583333, 0.14142513, 0.1583333, -0.14142513),
+"times": PackedFloat32Array(5.8333335, 9.269002, 9.900001, 10.633333, 11.566667, 12.366667, 13.266666)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("IntroCamera:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0.44109714, -0.4166665, 0, 0.4166665, 0, 0.6367228, -0.4166665, 0, 0.4166665, 0, 0.6367228, -0.10000014, 0, 0.10000014, 0, 0.732, -0.7105274, 0.015528619, 0.1583333, 0.023819298),
+"times": PackedFloat32Array(5.8333335, 7.4999995, 12.366667, 13.266666)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("IntroCamera:position:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.3452783, -0.4166665, 0, 0.4166665, 0, 0, -0.4166665, 0, 0.4166665, 0),
+"times": PackedFloat32Array(5.8333335, 7.4999995)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1ism"]
+_data = {
+&"RESET": SubResource("Animation_b1ism"),
+&"intro_camera": SubResource("Animation_x5y2x")
+}
 
 [node name="Interior1" type="Node3D" unique_id=204303225]
 script = ExtResource("1_6xk2y")
@@ -90,7 +325,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2371898, -0.63221, 0)
 shape = SubResource("BoxShape3D_xhqlx")
 
 [node name="Customize" type="Area3D" parent="." unique_id=1418023625]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.517301, 0.4842944, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1604838, 0.4842944, -0.13046473)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Customize" unique_id=1601331137]
 shape = SubResource("BoxShape3D_i0q3p")
@@ -100,24 +335,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70603234, 0, 0)
 script = ExtResource("2_xcfsu")
 metadata/_custom_type_script = "uid://tmhevtvj3bh8"
 
-[node name="Mirror" type="Marker3D" parent="." unique_id=753542439 node_paths=PackedStringArray("nodes")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-script = ExtResource("3_6xk2y")
-nodes = [NodePath("../SpotLight3D"), NodePath("../OmniLight3D"), NodePath("../Walls/MeshInstance3D8")]
-metadata/_custom_type_script = "uid://bgiywc8b2bscd"
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=918173597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12911177, 4.4583015, 1.7700844)
+shadow_enabled = true
 omni_range = 8.899275
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=21689058]
-transform = Transform3D(0.37097344, -0.52166086, 0.76827645, 0.08564597, 0.84300387, 0.5310455, -0.9246856, -0.13120398, 0.3574102, 5.5899844, 1.471287, 0.8504225)
+transform = Transform3D(-0.877983, 0.26141456, -0.40100914, 0, 0.8377187, 0.5461019, 0.47869188, 0.4794682, -0.7355028, 1.742, 1.376, -0.521)
 shadow_enabled = true
 spot_range = 5.3233337
 spot_angle = 41.074554
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1778294513]
-transform = Transform3D(0.70957077, 0.079766855, -0.7001047, 0, 0.9935719, 0.11320321, 0.7046342, -0.08032569, 0.7050096, 4.367, 0.77, 1.5)
+[node name="CustomizationCamera" type="Node3D" parent="." unique_id=1778294513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.429, 0.7, 0)
 script = ExtResource("5_uucl3")
 tween_resource = SubResource("Resource_i0q3p")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_f0tib")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1323840738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, -0.787)
+
+[node name="Mirror3D" parent="Node3D" unique_id=1399694131 instance=ExtResource("8_i0q3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6115179, 0)
+size = Vector2(1.04, 1.265)
+pixels_per_unit = 500
+color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/Mirror3D" unique_id=205569979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.587793, 0)
+mesh = SubResource("BoxMesh_b1ism")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Mirror3D" unique_id=771504758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.557611, 0)
+mesh = SubResource("BoxMesh_b1ism")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Mirror3D" unique_id=190791696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_x5y2x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Mirror3D" unique_id=801307515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+mesh = SubResource("BoxMesh_x5y2x")
+
+[node name="IntroSpawn" type="Marker3D" parent="." unique_id=1070838717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 0)
+script = ExtResource("2_xcfsu")
+metadata/_custom_type_script = "uid://tmhevtvj3bh8"
+
+[node name="FPSCamera" type="Node3D" parent="IntroSpawn" unique_id=1090716726]
+transform = Transform3D(-4.371139e-08, -0.104528464, 0.9945219, 0, 0.9945219, 0.104528464, -1, 4.5690842e-09, -4.3471935e-08, 0, 0.733, 0)
+script = ExtResource("5_uucl3")
+tween_resource = SubResource("Resource_x5y2x")
+camera_3d_resource = SubResource("Resource_o6syv")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Blink" type="CanvasLayer" parent="." unique_id=1932668280]
+
+[node name="BlinkRect" type="ColorRect" parent="Blink" unique_id=610617015]
+material = SubResource("ShaderMaterial_x5y2x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IntroCamera" type="Node3D" parent="." unique_id=900609745]
+transform = Transform3D(-0.9999939, 0, 0.0034905917, 0, 1.0000002, 0, -0.003490592, 0, -0.99999386, 3.383, 0.883, 0)
+script = ExtResource("5_uucl3")
+tween_on_load = false
+camera_3d_resource = SubResource("Resource_rb3u3")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2059741024]
+environment = SubResource("Environment_f0tib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1979788836]
+libraries/ = SubResource("AnimationLibrary_b1ism")
+
+[node name="Sketchfab_Scene" parent="." unique_id=997321325 instance=ExtResource("10_x5y2x")]
+transform = Transform3D(-3.059797e-10, 0, -0.007, 0, 0.007, 0, 0.007, 0, -3.059797e-10, 3.34409, 0.3114307, -0.109466106)

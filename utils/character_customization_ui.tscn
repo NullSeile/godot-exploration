@@ -98,12 +98,13 @@ theme = SubResource("Theme_h54wd")
 layout_mode = 2
 
 [node name="Cancel" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1338232387]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Cancel"
+text = "Hell nah"
 
 [node name="Accept" type="Button" parent="MarginContainer/HBoxContainer" unique_id=237181425]
 layout_mode = 2
-text = "Accept"
+text = "Good enough"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://bswdu3bahr6xj"]
+[gd_scene format=3 uid="uid://c0ppmaridov0q"]
 
 [ext_resource type="Script" uid="uid://bfu6mrry0ppbv" path="res://minigames/test1/minigame.gd" id="1_4bqly"]
-[ext_resource type="Script" uid="uid://sy8dxo47to47" path="res://minigames/test1/character_body_2d.gd" id="2_2wbbs"]
+[ext_resource type="Script" uid="uid://sy8dxo47to47" path="res://minigames/test1/pou.gd" id="2_2wbbs"]
 [ext_resource type="Texture2D" uid="uid://h1557lj136ny" path="res://minigames/test1/pou.png" id="3_2wbbs"]
-[ext_resource type="Texture2D" uid="uid://2k2aenbaasi7" path="res://minigames/test1/sky.jpg" id="4_xccfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n4wl"]
 size = Vector2(630.5, 56.75)
@@ -33,82 +32,55 @@ gradient = SubResource("Gradient_xccfl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds3qd"]
 size = Vector2(75, 69)
 
-[node name="Minigame" type="Node2D" unique_id=685311119]
+[node name="Node2D" type="Node2D" unique_id=303326365]
 script = ExtResource("1_4bqly")
 
-[node name="Fons" type="Sprite2D" parent="." unique_id=112527383]
-scale = Vector2(8.375, 7.135)
-texture = ExtResource("4_xccfl")
-
-[node name="Button" type="Button" parent="." unique_id=1646514685]
-offset_left = 14.0
-offset_top = 255.0
-offset_right = 85.0
-offset_bottom = 286.0
-text = "Go Back"
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1170495888]
-custom_minimum_size = Vector2(5.25, 3.775)
-offset_left = 110.0
-offset_top = 17.0
-offset_right = 1110.0
-offset_bottom = 567.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=747370073]
-handle_input_locally = false
-size = Vector2i(1000, 550)
-render_target_update_mode = 4
-
-[node name="Node2D" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=577406169]
-
-[node name="Terra" type="StaticBody2D" parent="SubViewportContainer/SubViewport/Node2D" unique_id=283090697]
+[node name="Terra" type="StaticBody2D" parent="." unique_id=979858529]
 position = Vector2(538, 547)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Node2D/Terra" unique_id=2077288109]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terra" unique_id=2033515530]
 shape = SubResource("RectangleShape2D_3n4wl")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D/Terra" unique_id=104042205]
+[node name="Sprite2D" type="Sprite2D" parent="Terra" unique_id=961731172]
 scale = Vector2(9.900849, -0.901567)
 texture = SubResource("GradientTexture2D_k7ghj")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="SubViewportContainer/SubViewport/Node2D" unique_id=1945854901]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=630591149]
 position = Vector2(766, 416.00003)
 rotation = -0.6751099
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Node2D/RigidBody2D" unique_id=2081622619]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=303470216]
 shape = SubResource("RectangleShape2D_4bqly")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D/RigidBody2D" unique_id=1524744791]
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=432295056]
 scale = Vector2(0.1, 0.1)
 texture = SubResource("NoiseTexture2D_3n4wl")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="SubViewportContainer/SubViewport/Node2D" unique_id=833900920]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=214401847]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Node2D/StaticBody2D" unique_id=2008481362]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1680667507]
 position = Vector2(344, 342)
 shape = SubResource("RectangleShape2D_2wbbs")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D/StaticBody2D" unique_id=842787024]
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=885726170]
 position = Vector2(344.5, 342)
 scale = Vector2(3.7343748, 0.96875)
 texture = SubResource("GradientTexture2D_ds3qd")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="SubViewportContainer/SubViewport/Node2D" unique_id=1564462414]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1974438105]
 position = Vector2(6.77, 58.215)
 script = ExtResource("2_2wbbs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Node2D/CharacterBody2D" unique_id=1071682669]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=686368902]
 position = Vector2(412.73, 45.285)
 shape = SubResource("RectangleShape2D_ds3qd")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Node2D/CharacterBody2D" unique_id=328160973]
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=830835219]
 position = Vector2(413.23, 46.785004)
 scale = Vector2(0.21839081, 0.21839081)
 texture = ExtResource("3_2wbbs")
 
-[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/Node2D/CharacterBody2D" unique_id=1230597016]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1754313155]
 position = Vector2(528.23, 289.785)
 offset = Vector2(0, -202.37)
 zoom = Vector2(1.22, 1.22)
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

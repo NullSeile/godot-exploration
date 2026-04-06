@@ -2,11 +2,59 @@
 
 [ext_resource type="Script" uid="uid://curplqr264ddu" path="res://MainScene.gd" id="1_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://b4jccvu5j6uy6" path="res://player/player.tscn" id="2_rf2cd"]
+[ext_resource type="Texture2D" uid="uid://2k2aenbaasi7" path="res://minigames/test1/sky.jpg" id="2_rpqi1"]
+
+[sub_resource type="Theme" id="Theme_x4av3"]
+MarginContainer/constants/margin_bottom = 70
+MarginContainer/constants/margin_left = 70
+MarginContainer/constants/margin_right = 70
+MarginContainer/constants/margin_top = 70
 
 [node name="Root" type="Node3D" unique_id=1602755397]
 script = ExtResource("1_uxrcv")
 
-[node name="Minigame" type="Node3D" parent="." unique_id=228684455]
+[node name="MinigameUI" type="CanvasLayer" parent="." unique_id=1786584286]
+
+[node name="TextureRect" type="TextureRect" parent="MinigameUI" unique_id=64704434]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rpqi1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MinigameUI" unique_id=626587594]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x4av3")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MinigameUI/MarginContainer" unique_id=1959602883]
+layout_mode = 2
+stretch = true
+
+[node name="Minigame" type="SubViewport" parent="MinigameUI/MarginContainer/SubViewportContainer" unique_id=1640521386]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1012, 508)
+render_target_update_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MinigameUI" unique_id=1379030324]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = 15.0
+offset_right = 161.0
+offset_bottom = 55.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[b][tornado]THIS IS A MINIGAME"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="World" type="Node3D" parent="." unique_id=1897481625]
 

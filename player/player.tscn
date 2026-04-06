@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://cec5aj4oppuc1" path="res://player/player.gdshader" id="2_s3g0c"]
 [ext_resource type="Texture2D" uid="uid://dhsnexd35cluq" path="res://player/animation/body_atlas.png" id="3_7l6ig"]
 [ext_resource type="Texture2D" uid="uid://divpx2ub5bt31" path="res://player/animation/body/body-standing-2.png" id="3_wodsf"]
+[ext_resource type="Script" uid="uid://b8hhnqsugykly" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_2h6tc"]
 [ext_resource type="Texture2D" uid="uid://7olodmeoavlx" path="res://player/animation/body/body-standing-3.png" id="4_32hag"]
 [ext_resource type="Texture2D" uid="uid://c50knqpnpx76k" path="res://player/animation/body/body-standing-4.png" id="5_tqiix"]
 [ext_resource type="Texture2D" uid="uid://cgclimhugysbp" path="res://player/animation/body/body-walking-1.png" id="6_e7oew"]
@@ -81,6 +82,10 @@ size = Vector3(0.75, 1.5, 0.75)
 script = ExtResource("72_do7qw")
 duration = 0.5
 transition = 1
+
+[sub_resource type="Resource" id="Resource_8rogd"]
+script = ExtResource("4_2h6tc")
+metadata/_custom_type_script = "uid://b8hhnqsugykly"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pjwc4"]
 render_priority = 0
@@ -406,16 +411,16 @@ script = ExtResource("1_4flbx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_rkbax")
 
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1746495270 node_paths=PackedStringArray("follow_target", "look_at_target")]
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1746495270 node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 0.96906316, 0.24681297, 0, -0.24681297, 0.96906316, 0, 1.505, 2.245)
 top_level = true
 script = ExtResource("71_kewli")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("..")
-look_at_target = NodePath("../Body/Head")
 tween_resource = SubResource("Resource_2h6tc")
 tween_on_load = false
+camera_3d_resource = SubResource("Resource_8rogd")
 follow_offset = Vector3(0, 1.505, 2.245)
 align_transform_with_view = Callable()
 align_position_with_view = Callable()

@@ -58,6 +58,13 @@ var bottom_styles = {
 
 @onready var camera_host: PhantomCameraHost = $Camera3D/PhantomCameraHost
 
+var can_move: bool = true
+var target_position = null
+
+
+func move_to(target_pos: Vector3):
+	target_position = target_pos
+
 
 func set_interactable(node: Node) -> void:
 	current_interactable = node
@@ -70,20 +77,17 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed(&"interact"):
 		if current_interactable:
 			current_interactable.interact()
 
-	if event.is_action_pressed("test1"):
+	if event.is_action_pressed(&"test1"):
 		main_scene.save_game()
 
-	if event.is_action_pressed("test2"):
-		main_scene.save_game()
-		main_scene.change_world(
-			"res://levels/character_custom/character_customization.tscn", "SpawnPoint"
-		)
+	if event.is_action_pressed(&"test2"):
+		main_scene.launch_minigame()
 
-	if event.is_action_pressed("test3"):
+	if event.is_action_pressed(&"test3"):
 		main_scene.load_game()
 
 
@@ -107,11 +111,11 @@ func _process(delta: float) -> void:
 	elif velocity.x < 0:
 		desired_angle = -PI
 
-	$Body/Hair.material_override.set_shader_parameter("current_atlas", hair_styles[hair_style])
-	$Body/Head.material_override.set_shader_parameter("current_atlas", head_styles[head_style])
-	$Body/Eyes.material_override.set_shader_parameter("current_atlas", eye_styles[eye_style])
+	$Body/Hair.material_override.set_shader_parameter(&"current_atlas", hair_styles[hair_style])
+	$Body/Head.material_override.set_shader_parameter(&"current_atlas", head_styles[head_style])
+	$Body/Eyes.material_override.set_shader_parameter(&"current_atlas", eye_styles[eye_style])
 	$Body/Bottom.material_override.set_shader_parameter(
-		"current_atlas", bottom_styles[bottom_style]
+		&"current_atlas", bottom_styles[bottom_style]
 	)
 
 	if head_style != HeadStyle.HUMAN:
@@ -123,7 +127,7 @@ func _process(delta: float) -> void:
 		$Body/Hair
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				hair_color,
 				shaded(hair_color),
@@ -136,7 +140,7 @@ func _process(delta: float) -> void:
 		$Body/Body
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				skin_color,
 				shaded(skin_color),
@@ -147,7 +151,7 @@ func _process(delta: float) -> void:
 		$Body/Head
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				skin_color,
 				shaded(skin_color),
@@ -167,7 +171,7 @@ func _process(delta: float) -> void:
 		$Body/Eyes
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				blush_color,
 				skin_color if head_style == HeadStyle.CANINE else shaded(blush_color),
@@ -181,7 +185,7 @@ func _process(delta: float) -> void:
 		$Body/Shirt
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				shirt_color,
 				shaded(shirt_color),
@@ -194,7 +198,7 @@ func _process(delta: float) -> void:
 		$Body/Bottom
 		. material_override
 		. set_shader_parameter(
-			"colors",
+			&"colors",
 			[
 				pants_color,
 				shaded(pants_color),
@@ -205,30 +209,37 @@ func _process(delta: float) -> void:
 	if absf(velocity.x) > 1.0:
 		for part in $Body.get_children():
 			var p: AnimatedSprite3D = part as AnimatedSprite3D
-			p.play("walk")
+			p.play(&"walk")
 	else:
 		for part in $Body.get_children():
 			var p: AnimatedSprite3D = part as AnimatedSprite3D
-			p.play("idle")
+			p.play(&"idle")
 
 	$Body.rotation.y = lerpf($Body.rotation.y, desired_angle, delta * 10)
 
 
 func _physics_process(delta: float) -> void:
-	if on_dialogue:
-		return
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	var input: float = 0
+	if not on_dialogue and can_move:
+		# Handle jump.
+		if Input.is_action_just_pressed(&"jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input := Input.get_axis("left", "right")
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		input = Input.get_axis(&"left", &"right")
+
+	if target_position:
+		if global_position.distance_to(target_position) < 0.1:
+			target_position = null
+		else:
+			var direction = global_position.direction_to(target_position)
+			input = direction.x * 0.3
+
 	var target := input * SPEED * delta
 
 	if input:
