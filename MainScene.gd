@@ -69,6 +69,8 @@ func save_game() -> void:
 
 func load_game() -> void:
 	if not FileAccess.file_exists("user://savegame.json"):
+		intro_done = false
+		change_world(&"res://levels/interior1/interior1.tscn", &"IntroSpawn")
 		return
 
 	var save_file = FileAccess.open("user://savegame.json", FileAccess.READ)
