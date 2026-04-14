@@ -9,6 +9,7 @@ var dialogue: DialogueResource = preload("res:///NPCs/ajan/ajan.dialogue")
 func interact() -> void:
 	DialogueManager.show_dialogue_balloon(dialogue, "start")
 	$AnimatedSprite3D.play("talk")
+	player.move_to(global_position.x - 1, 1)
 
 
 func _ready() -> void:
@@ -32,5 +33,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

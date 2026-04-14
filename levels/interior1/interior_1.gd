@@ -25,7 +25,7 @@ func show_customization() -> void:
 
 	player.can_move = false
 
-	player.move_to($IntroSpawn.global_position)
+	player.move_to($IntroSpawn.global_position.x)
 
 	customization_ui = customization_scene.instantiate() as CharacterCustomization
 	customization_ui.show_cancel = main_scene.intro_done

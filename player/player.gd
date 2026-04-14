@@ -60,10 +60,12 @@ var bottom_styles = {
 
 var can_move: bool = true
 var target_position = null
+var target_direction = null
 
 
-func move_to(target_pos: Vector3):
+func move_to(target_pos: float, target_dir = null):
 	target_position = target_pos
+	target_direction = target_dir
 
 
 func set_interactable(node: Node) -> void:
@@ -105,11 +107,6 @@ func blend(color: Color, other: Color, alpha: float) -> Color:
 
 func _process(delta: float) -> void:
 	$UI/interact.visible = true if current_interactable and not on_dialogue else false
-
-	if velocity.x > 0:
-		desired_angle = 0
-	elif velocity.x < 0:
-		desired_angle = -PI
 
 	$Body/Hair.material_override.set_shader_parameter(&"current_atlas", hair_styles[hair_style])
 	$Body/Head.material_override.set_shader_parameter(&"current_atlas", head_styles[head_style])
@@ -234,11 +231,23 @@ func _physics_process(delta: float) -> void:
 		input = Input.get_axis(&"left", &"right")
 
 	if target_position:
-		if global_position.distance_to(target_position) < 0.1:
+		var delta_x: float = target_position - global_position.x
+		if absf(delta_x) < 0.1:
 			target_position = null
+			if target_direction:
+				if target_direction > 0:
+					desired_angle = 0
+				elif target_direction < 0:
+					desired_angle = -PI
+			target_direction = null
 		else:
-			var direction = global_position.direction_to(target_position)
-			input = direction.x * 0.3
+			var direction: float = -1 if delta_x < 0 else 1
+			input = direction * 0.3
+
+	if input > 0:
+		desired_angle = 0
+	elif input < 0:
+		desired_angle = -PI
 
 	var target := input * SPEED * delta
 
