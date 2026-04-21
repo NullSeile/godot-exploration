@@ -127,6 +127,7 @@ grow_vertical = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer" unique_id=2114199268]
 layout_mode = 2
 size_flags_vertical = 8
+alignment = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer/HBoxContainer" unique_id=614326373]
 clip_children = 2

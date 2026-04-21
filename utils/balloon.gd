@@ -147,6 +147,8 @@ func apply_dialogue_line() -> void:
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
+	else:
+		$Balloon/MarginContainer/HBoxContainer/PanelContainer.hide()
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
