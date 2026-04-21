@@ -62,6 +62,7 @@ var can_move: bool = true
 var target_position = null
 var target_direction = null
 
+signal move_to_finish
 
 func move_to(target_pos: float, target_dir = null):
 	target_position = target_pos
@@ -240,6 +241,7 @@ func _physics_process(delta: float) -> void:
 				elif target_direction < 0:
 					desired_angle = -PI
 			target_direction = null
+			move_to_finish.emit()
 		else:
 			var direction: float = -1 if delta_x < 0 else 1
 			input = direction * 0.3
